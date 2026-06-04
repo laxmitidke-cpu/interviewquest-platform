@@ -1,0 +1,6 @@
+{
+  "name": "InterviewQuest Platform",
+  "description": "Full-stack role-based assessments platform with automatic AI question generator, candidate tracking, secure scoring, automated email invitation simulator, and PDF report export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

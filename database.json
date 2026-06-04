@@ -1,0 +1,557 @@
+{
+  "users": [
+    {
+      "id": "admin-laxmi",
+      "email": "laxmitidke@gmail.com",
+      "name": "Laxmi Tidke",
+      "role": "admin",
+      "createdAt": "2026-05-27T16:04:02.165Z"
+    },
+    {
+      "id": "cand-default",
+      "email": "candidate@example.com",
+      "name": "Alex Rivera",
+      "role": "candidate",
+      "createdAt": "2026-05-27T16:04:02.167Z"
+    }
+  ],
+  "assessments": [
+    {
+      "id": "asm-sample-react-node",
+      "title": "Senior Full Stack Dev Assessment (React & Node.js)",
+      "creatorId": "admin-laxmi",
+      "skills": [
+        "React",
+        "Node.js"
+      ],
+      "numQuestions": 3,
+      "timeLimit": 15,
+      "createdAt": "2026-05-27T16:04:02.168Z",
+      "questions": [
+        {
+          "id": "q-r1",
+          "type": "mcq",
+          "text": "Which of the following is correct regarding React's 'useRef' hook?",
+          "skills": [
+            "React"
+          ],
+          "points": 10,
+          "choices": [
+            "Updating a ref causes a component to re-render immediately.",
+            "It returns a mutable object whose '.current' property is initialized to the passed argument, and changes do not trigger re-renders.",
+            "It can only be used to hold references to direct DOM nodes.",
+            "It is deprecated in favor of React 19 state components."
+          ],
+          "correctAnswerIndex": 1
+        },
+        {
+          "id": "q-n1",
+          "type": "mcq",
+          "text": "Which of the following describes Node.js's Libuv thread pool behavior by default?",
+          "skills": [
+            "Node.js"
+          ],
+          "points": 10,
+          "choices": [
+            "It handles all single asynchronous callbacks recursively in the master thread.",
+            "It operates with 4 working threads by default to execute CPU-heavy or blocking tasks like cryptography, compression, and file-system access.",
+            "It executes standard network routing in individual sandbox processes.",
+            "It terminates automatically when garbage collection is triggered."
+          ],
+          "correctAnswerIndex": 1
+        },
+        {
+          "id": "q-sys1",
+          "type": "short_answer",
+          "text": "Describe the primary differences between Server-Side Rendering (SSR) and Client-Side Rendering (CSR) in React frameworks. What are the key performance tradeoffs?",
+          "skills": [
+            "React"
+          ],
+          "points": 15,
+          "correctAnswerRubric": "Candidate should explain that SSR executes React on the server to output HTML, reducing initial load times (First Contentful Paint) and improving SEO. CSR ships minimal HTML and runs JS in browser, which has slower initial paints but faster subsequent transitions. Tradeoffs include server load (SSR increases CPU demands) and Interactivity lag (TTL)."
+        }
+      ]
+    },
+    {
+      "title": "Networking_CI/CD",
+      "creatorId": "admin-laxmi",
+      "skills": [
+        "Networking",
+        "CI/CD tools"
+      ],
+      "numQuestions": 10,
+      "timeLimit": 20,
+      "questions": [
+        {
+          "id": "q-fallback-1",
+          "type": "mcq",
+          "text": "For a project prioritizing rapid concurrency, how does the event cycle optimize resource utilization?",
+          "skills": [
+            "Networking"
+          ],
+          "points": 10,
+          "choices": [
+            "By enforcing strict synchronized blocking across each request thread.",
+            "By utilizing a single-threaded non-blocking asynchronous event loop structure.",
+            "By increasing server memory requirements automatically to cache values.",
+            "By executing database requests sequentially in separate JVM worker nodes."
+          ],
+          "correctAnswerIndex": 1
+        },
+        {
+          "id": "q-fallback-2",
+          "type": "short_answer",
+          "text": "Detail critical implementation patterns for securing state transactions when integrating with web applications. What features prevent intercept attacks?",
+          "skills": [
+            "CI/CD tools"
+          ],
+          "points": 15,
+          "correctAnswerRubric": "Candidate should detail the usage of JWT / secure authentication authorization mechanisms, HTTPS endpoints, CSRF token injections, and validation of request payloads to ensure data is not tampered."
+        },
+        {
+          "id": "q-fallback-3",
+          "type": "mcq",
+          "text": "Which architectural approach represents the optimal solution for managing scaling parameters?",
+          "skills": [
+            "Networking"
+          ],
+          "choices": [
+            "Vertically scaling a single database instance indefinitely until hardware constraints are met.",
+            "Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.",
+            "Restricting application usage to specific regions only.",
+            "Replacing all databases with simple unindexed flat files for raw speed."
+          ],
+          "correctAnswerIndex": 1,
+          "points": 10
+        },
+        {
+          "id": "q-fallback-4",
+          "type": "mcq",
+          "text": "For a project prioritizing rapid concurrency, how does the event cycle optimize resource utilization?",
+          "skills": [
+            "CI/CD tools"
+          ],
+          "points": 10,
+          "choices": [
+            "By enforcing strict synchronized blocking across each request thread.",
+            "By utilizing a single-threaded non-blocking asynchronous event loop structure.",
+            "By increasing server memory requirements automatically to cache values.",
+            "By executing database requests sequentially in separate JVM worker nodes."
+          ],
+          "correctAnswerIndex": 1
+        },
+        {
+          "id": "q-fallback-5",
+          "type": "short_answer",
+          "text": "Detail critical implementation patterns for securing state transactions when integrating with web applications. What features prevent intercept attacks?",
+          "skills": [
+            "Networking"
+          ],
+          "points": 15,
+          "correctAnswerRubric": "Candidate should detail the usage of JWT / secure authentication authorization mechanisms, HTTPS endpoints, CSRF token injections, and validation of request payloads to ensure data is not tampered."
+        },
+        {
+          "id": "q-fallback-6",
+          "type": "mcq",
+          "text": "Which architectural approach represents the optimal solution for managing scaling parameters?",
+          "skills": [
+            "CI/CD tools"
+          ],
+          "choices": [
+            "Vertically scaling a single database instance indefinitely until hardware constraints are met.",
+            "Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.",
+            "Restricting application usage to specific regions only.",
+            "Replacing all databases with simple unindexed flat files for raw speed."
+          ],
+          "correctAnswerIndex": 1,
+          "points": 10
+        },
+        {
+          "id": "q-fallback-7",
+          "type": "mcq",
+          "text": "For a project prioritizing rapid concurrency, how does the event cycle optimize resource utilization?",
+          "skills": [
+            "Networking"
+          ],
+          "points": 10,
+          "choices": [
+            "By enforcing strict synchronized blocking across each request thread.",
+            "By utilizing a single-threaded non-blocking asynchronous event loop structure.",
+            "By increasing server memory requirements automatically to cache values.",
+            "By executing database requests sequentially in separate JVM worker nodes."
+          ],
+          "correctAnswerIndex": 1
+        },
+        {
+          "id": "q-fallback-8",
+          "type": "short_answer",
+          "text": "Detail critical implementation patterns for securing state transactions when integrating with web applications. What features prevent intercept attacks?",
+          "skills": [
+            "CI/CD tools"
+          ],
+          "points": 15,
+          "correctAnswerRubric": "Candidate should detail the usage of JWT / secure authentication authorization mechanisms, HTTPS endpoints, CSRF token injections, and validation of request payloads to ensure data is not tampered."
+        },
+        {
+          "id": "q-fallback-9",
+          "type": "mcq",
+          "text": "Which architectural approach represents the optimal solution for managing scaling parameters?",
+          "skills": [
+            "Networking"
+          ],
+          "choices": [
+            "Vertically scaling a single database instance indefinitely until hardware constraints are met.",
+            "Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.",
+            "Restricting application usage to specific regions only.",
+            "Replacing all databases with simple unindexed flat files for raw speed."
+          ],
+          "correctAnswerIndex": 1,
+          "points": 10
+        },
+        {
+          "id": "q-fallback-10",
+          "type": "mcq",
+          "text": "For a project prioritizing rapid concurrency, how does the event cycle optimize resource utilization?",
+          "skills": [
+            "CI/CD tools"
+          ],
+          "points": 10,
+          "choices": [
+            "By enforcing strict synchronized blocking across each request thread.",
+            "By utilizing a single-threaded non-blocking asynchronous event loop structure.",
+            "By increasing server memory requirements automatically to cache values.",
+            "By executing database requests sequentially in separate JVM worker nodes."
+          ],
+          "correctAnswerIndex": 1
+        }
+      ],
+      "id": "asm-fb031b750b085bfc",
+      "createdAt": "2026-06-04T10:23:36.603Z"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "sess-completed-1",
+      "assessmentId": "asm-sample-react-node",
+      "candidateEmail": "candidate@example.com",
+      "candidateName": "Alex Rivera",
+      "status": "submitted",
+      "startedAt": "2026-05-27T15:04:02.168Z",
+      "completedAt": "2026-05-27T15:24:02.168Z",
+      "answers": [
+        {
+          "questionId": "q-r1",
+          "selectedAnswerIndex": 1,
+          "timeSpentSec": 45
+        },
+        {
+          "questionId": "q-n1",
+          "selectedAnswerIndex": 1,
+          "timeSpentSec": 30
+        },
+        {
+          "questionId": "q-sys1",
+          "typedAnswer": "SSR generates HTML on the server and improves page load speed and SEO indexability, because spiders can read the full text right away. CSR is client side JavaScript downloading which starts empty and is slower. However CSR has rapid dynamic routes on subsequent actions. SSR increases server loads.",
+          "timeSpentSec": 245
+        }
+      ],
+      "results": {
+        "totalScore": 32,
+        "maxScore": 35,
+        "passed": true,
+        "evaluations": [
+          {
+            "questionId": "q-r1",
+            "pointsEarned": 10,
+            "isCorrect": true,
+            "feedback": "Correct MCQ Selection."
+          },
+          {
+            "questionId": "q-n1",
+            "pointsEarned": 10,
+            "isCorrect": true,
+            "feedback": "Correct MCQ Selection."
+          },
+          {
+            "questionId": "q-sys1",
+            "pointsEarned": 12,
+            "isCorrect": true,
+            "feedback": "Exceptional analysis! The candidate laid out core concepts, highlighted initial load benchmarks (SEO, speed parameters), CSR transition benefits, and identified server runtime performance boundaries accurately."
+          }
+        ],
+        "overallFeedback": "Strong conceptual understanding of full-stack rendering dynamics. Highly competent in React hooks, core Node.js runtime operations and systems scalability."
+      },
+      "secureHash": "231e0109617990fe713a266cccbb8896ff163dcf931ae5b4aad7cc1771a8db38"
+    },
+    {
+      "id": "sess-8f4f1a93d91d2dad8814",
+      "assessmentId": "asm-fb031b750b085bfc",
+      "candidateEmail": "anything@gmai.com",
+      "candidateName": "Candidate_Networking",
+      "status": "submitted",
+      "answers": [
+        {
+          "questionId": "q-fallback-1",
+          "selectedAnswerIndex": 1,
+          "typedAnswer": "",
+          "timeSpentSec": 1
+        },
+        {
+          "questionId": "q-fallback-2",
+          "typedAnswer": "zsklfsldfk",
+          "timeSpentSec": 4
+        },
+        {
+          "questionId": "q-fallback-3",
+          "selectedAnswerIndex": 0,
+          "typedAnswer": "",
+          "timeSpentSec": 1
+        },
+        {
+          "questionId": "q-fallback-4",
+          "selectedAnswerIndex": 2,
+          "typedAnswer": "",
+          "timeSpentSec": 1
+        },
+        {
+          "questionId": "q-fallback-5",
+          "typedAnswer": "sdflksf;lsd;",
+          "timeSpentSec": 3
+        },
+        {
+          "questionId": "q-fallback-6",
+          "selectedAnswerIndex": 3,
+          "typedAnswer": "",
+          "timeSpentSec": 1
+        },
+        {
+          "questionId": "q-fallback-7",
+          "selectedAnswerIndex": 3,
+          "typedAnswer": "",
+          "timeSpentSec": 0
+        },
+        {
+          "questionId": "q-fallback-8",
+          "typedAnswer": "skldfjsldfkjs",
+          "timeSpentSec": 3
+        },
+        {
+          "questionId": "q-fallback-9",
+          "selectedAnswerIndex": 2,
+          "typedAnswer": "",
+          "timeSpentSec": 1
+        },
+        {
+          "questionId": "q-fallback-10",
+          "selectedAnswerIndex": 3,
+          "typedAnswer": "",
+          "timeSpentSec": 2
+        }
+      ],
+      "secureHash": "fd5f4c202c34c50fa587d14855291e8594f7abc1475dace850715c36e1ed05a8",
+      "startedAt": "2026-06-04T10:24:37.186Z",
+      "completedAt": "2026-06-04T10:25:04.599Z",
+      "results": {
+        "totalScore": 10,
+        "maxScore": 115,
+        "passed": false,
+        "evaluations": [
+          {
+            "questionId": "q-fallback-1",
+            "pointsEarned": 10,
+            "isCorrect": true,
+            "feedback": "Correct multiple choice answer selection!"
+          },
+          {
+            "questionId": "q-fallback-3",
+            "pointsEarned": 0,
+            "isCorrect": false,
+            "feedback": "Incorrect selection. The candidate chose: \"Vertically scaling a single database instance indefinitely until hardware constraints are met.\". The correct answer is: \"Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.\"."
+          },
+          {
+            "questionId": "q-fallback-4",
+            "pointsEarned": 0,
+            "isCorrect": false,
+            "feedback": "Incorrect selection. The candidate chose: \"By increasing server memory requirements automatically to cache values.\". The correct answer is: \"By utilizing a single-threaded non-blocking asynchronous event loop structure.\"."
+          },
+          {
+            "questionId": "q-fallback-6",
+            "pointsEarned": 0,
+            "isCorrect": false,
+            "feedback": "Incorrect selection. The candidate chose: \"Replacing all databases with simple unindexed flat files for raw speed.\". The correct answer is: \"Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.\"."
+          },
+          {
+            "questionId": "q-fallback-7",
+            "pointsEarned": 0,
+            "isCorrect": false,
+            "feedback": "Incorrect selection. The candidate chose: \"By executing database requests sequentially in separate JVM worker nodes.\". The correct answer is: \"By utilizing a single-threaded non-blocking asynchronous event loop structure.\"."
+          },
+          {
+            "questionId": "q-fallback-9",
+            "pointsEarned": 0,
+            "isCorrect": false,
+            "feedback": "Incorrect selection. The candidate chose: \"Restricting application usage to specific regions only.\". The correct answer is: \"Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.\"."
+          },
+          {
+            "questionId": "q-fallback-10",
+            "pointsEarned": 0,
+            "isCorrect": false,
+            "feedback": "Incorrect selection. The candidate chose: \"By executing database requests sequentially in separate JVM worker nodes.\". The correct answer is: \"By utilizing a single-threaded non-blocking asynchronous event loop structure.\"."
+          },
+          {
+            "questionId": "q-fallback-2",
+            "pointsEarned": 0,
+            "isCorrect": false,
+            "feedback": "[Local Analyzer Fallback] Calculated score based on length (1 words). Candidate answers have been cached securely for manual review by recruiter."
+          },
+          {
+            "questionId": "q-fallback-5",
+            "pointsEarned": 0,
+            "isCorrect": false,
+            "feedback": "[Local Analyzer Fallback] Calculated score based on length (1 words). Candidate answers have been cached securely for manual review by recruiter."
+          },
+          {
+            "questionId": "q-fallback-8",
+            "pointsEarned": 0,
+            "isCorrect": false,
+            "feedback": "[Local Analyzer Fallback] Calculated score based on length (1 words). Candidate answers have been cached securely for manual review by recruiter."
+          }
+        ],
+        "overallFeedback": "Further screening advised. Points earned do not meet full baseline expectation."
+      }
+    }
+  ],
+  "invitations": [
+    {
+      "id": "inv-9eabcd0c38251607",
+      "assessmentId": "asm-fb031b750b085bfc",
+      "candidateEmail": "anything@gmai.com",
+      "candidateName": "Candidate_Networking",
+      "token": "f1507cf43669ec95372ff545bef8119a",
+      "status": "completed",
+      "sentAt": "2026-06-04T10:24:21.567Z",
+      "completedAt": "2026-06-04T10:25:04.602Z"
+    }
+  ],
+  "emails": [
+    {
+      "id": "mail-295318aa6cae4b02",
+      "toEmail": "anything@gmai.com",
+      "toName": "Candidate_Networking",
+      "subject": "Assessment Invitation: Networking_CI/CD",
+      "htmlBody": "\n      <div style=\"font-family: Arial, sans-serif; max-width: 550px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937;\">\n        <h2 style=\"color: #4f46e5; margin-top: 0;\">Online Technical Interview Invitation</h2>\n        <p>Dear <strong>Candidate_Networking</strong>,</p>\n        <p>You have been formally invited to complete an online screening assessment for the role of senior engineer.</p>\n        \n        <div style=\"background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 12px; margin: 18px 0; border-radius: 0 4px 4px 0;\">\n          <h4 style=\"margin: 0 0 6px 0; color: #111827;\">Assessment Overview:</h4>\n          <ul style=\"margin: 0; padding-left: 18px;\">\n            <li><strong>Subject:</strong> Networking_CI/CD</li>\n            <li><strong>Target Skills:</strong> Networking, CI/CD tools</li>\n            <li><strong>Time Constraint:</strong> 20 minutes</li>\n            <li><strong>Form Type:</strong> MCQ + In-Depth Short Answer</li>\n          </ul>\n        </div>\n\n        <p style=\"margin-top: 24px;\">Please click the direct link below to access your sandbox. Ensure a stable network connection before starting. State is saved securely.</p>\n        \n        <div style=\"text-align: center; margin: 28px 0;\">\n          <a href=\"http://quest:3000/?token=f1507cf43669ec95372ff545bef8119a\" style=\"background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 14px;\">Start Assessment Session</a>\n        </div>\n\n        <p style=\"font-size: 12px; color: #6b7280; text-align: center; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;\">This link is unique to you. Do not share. Verified secure encryption by Postgres/Signer.</p>\n      </div>\n    ",
+      "sentAt": "2026-06-04T10:24:21.567Z",
+      "status": "delivered"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "audit-d6dfd9f4098e",
+      "action": "AI_GRADING_END",
+      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Auto-grading complete. Result Cryptographic HMAC verified successfully. Score: 10/115",
+      "timestamp": "2026-06-04T10:25:04.604Z"
+    },
+    {
+      "id": "audit-a441eb4642cc",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityType": "sessions",
+      "performedBy": "anything@gmai.com",
+      "details": "Updated session status to: submitted",
+      "timestamp": "2026-06-04T10:25:04.602Z"
+    },
+    {
+      "id": "audit-2b09449c90b2",
+      "action": "AI_GRADING_START",
+      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Launching Gemini AI auto-grading loop for candidate: anything@gmai.com",
+      "timestamp": "2026-06-04T10:25:04.599Z"
+    },
+    {
+      "id": "audit-cc8a9371ebc5",
+      "action": "SUBMISSION_RECEIVED",
+      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityType": "sessions",
+      "performedBy": "API",
+      "details": "Received answers payload from candidate session. Processing assessment.",
+      "timestamp": "2026-06-04T10:25:04.598Z"
+    },
+    {
+      "id": "audit-7051c8e82ea2",
+      "action": "CANDIDATE_START_EXAM",
+      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityType": "sessions",
+      "performedBy": "anything@gmai.com",
+      "details": "Candidate Candidate_Networking officially launched timed test session.",
+      "timestamp": "2026-06-04T10:24:37.188Z"
+    },
+    {
+      "id": "audit-662d9e4e0cfe",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityType": "sessions",
+      "performedBy": "anything@gmai.com",
+      "details": "Updated session status to: in_progress",
+      "timestamp": "2026-06-04T10:24:37.186Z"
+    },
+    {
+      "id": "audit-51861700df55",
+      "action": "SEND_INVITATION",
+      "entityId": "inv-9eabcd0c38251607",
+      "entityType": "invitations",
+      "performedBy": "SYSTEM",
+      "details": "Automated email invitation dispatched cleanly to anything@gmai.com",
+      "timestamp": "2026-06-04T10:24:21.567Z"
+    },
+    {
+      "id": "audit-70b5a24d200d",
+      "action": "CREATE_SESSION",
+      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Created interview candidate queue record for anything@gmai.com",
+      "timestamp": "2026-06-04T10:24:21.565Z"
+    },
+    {
+      "id": "audit-deed74803f59",
+      "action": "CREATE_ASSESSMENT",
+      "entityId": "asm-fb031b750b085bfc",
+      "entityType": "assessments",
+      "performedBy": "admin-laxmi",
+      "details": "Created assessment containing 10 items in Networking,CI/CD tools",
+      "timestamp": "2026-06-04T10:23:36.603Z"
+    },
+    {
+      "id": "audit-088265d15efd",
+      "action": "AI_GENERATION_START",
+      "entityId": "pending",
+      "entityType": "assessments",
+      "performedBy": "admin-laxmi",
+      "details": "Requesting Gemini to draft 10 questions for skills: Networking, CI/CD tools",
+      "timestamp": "2026-06-04T10:23:36.601Z"
+    },
+    {
+      "id": "audit-7c6f27f460f9",
+      "action": "SEED_ASSESSMENT",
+      "entityId": "asm-sample-react-node",
+      "entityType": "assessments",
+      "performedBy": "SYSTEM",
+      "details": "Seeded React & Node.js dynamic assessment",
+      "timestamp": "2026-05-27T16:04:02.169Z"
+    },
+    {
+      "id": "audit-bd146b504bdd",
+      "action": "SEED_USER",
+      "entityId": "admin-laxmi",
+      "entityType": "users",
+      "performedBy": "SYSTEM",
+      "details": "Seeded default Admin recruiter account",
+      "timestamp": "2026-05-27T16:04:02.167Z"
+    }
+  ]
+}
