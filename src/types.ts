@@ -22,11 +22,13 @@ export interface Assessment {
   skills: string[];
   numQuestions: number;
   timeLimit: number; // in minutes
+  questionType?: QuestionnaireType;
   createdAt: string;
   questions: Question[];
 }
 
 export type QuestionType = "mcq" | "short_answer";
+export type QuestionnaireType = "mcq" | "descriptive" | "mixed";
 export type QuestionDifficulty = "easy" | "medium" | "hard";
 
 export interface Question {

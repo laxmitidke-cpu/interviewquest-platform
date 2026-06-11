@@ -13,6 +13,7 @@ import { Shield, BookOpen, AlertTriangle } from "lucide-react";
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
+  const [sandboxClosed, setSandboxClosed] = useState(false);
 
   useEffect(() => {
     // Check if URL has candidate invite token (e.g. /?token=xyz)
@@ -20,6 +21,11 @@ export default function App() {
     const codeToken = urlParams.get("token");
     if (codeToken) {
       setToken(codeToken);
+    } else {
+      const storedClosedToken = sessionStorage.getItem("iq_closed_token");
+      if (storedClosedToken) {
+        setSandboxClosed(true);
+      }
     }
 
     // Try to auto login candidate session if user data exists in sessionStorage
@@ -43,13 +49,27 @@ export default function App() {
     sessionStorage.removeItem("iq_connected_user");
   };
 
-  const handleExitExam = () => {
-    // Clean up query parameters on exam exit to allow normal navigating
-    window.history.replaceState({}, document.title, "/login");
-    setToken(null);
+  const handleExitExam = () => {    if (token) {
+      sessionStorage.setItem("iq_closed_token", token);
+    }    // Clean up query parameters on exam exit and remain on the sandbox completion state
+    window.history.replaceState({}, document.title, window.location.pathname);
+    setSandboxClosed(true);
   };
 
   // 1. Candidate Direct assessment URL bypass path
+  if (sandboxClosed && !user) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 p-4 font-sans antialiased text-gray-900">
+        <div className="max-w-md w-full bg-white p-8 rounded-2xl border border-gray-150 text-center shadow-xs">
+          <h1 className="text-xl font-bold tracking-tight text-gray-900">Assessment Closed</h1>
+          <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+            Your submission is complete and the sandbox has been closed. You can safely close this tab or revisit the invitation link when needed.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   if (token) {
     return (
       <div className="font-sans antialiased text-gray-900 bg-gray-50 min-h-screen">

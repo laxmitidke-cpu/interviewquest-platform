@@ -46,7 +46,9 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
   const [numQuestions, setNumQuestions] = useState(3);
   const [timeLimit, setTimeLimit] = useState(20);
   const [difficultyLevel, setDifficultyLevel] = useState<"easy" | "medium" | "hard">("medium");
+  const [questionType, setQuestionType] = useState<"mcq" | "descriptive" | "mixed">("mixed");
   const [useAi, setUseAi] = useState(true);
+  const [customSkill, setCustomSkill] = useState("");
   const [creatingAss, setCreatingAss] = useState(false);
   const [createSuccess, setCreateSuccess] = useState(false);
 
@@ -61,8 +63,10 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
 
   // Selected candidate result view
   const [selectedSessionId, setSelectedSessionId] = useState<string | null>(null);
+  const [showTemplateList, setShowTemplateList] = useState(false);
 
   const skillOptions = ["React", "Python", "Node.js", "PostgreSQL", "System Design", "Cloud Computing", "Networking", "Linux", "CI/CD tools"];
+  const skillChips = Array.from(new Set([...skillOptions, ...selectedSkills]));
 
   const handleToggleSkill = (skill: string) => {
     if (selectedSkills.includes(skill)) {
@@ -72,6 +76,15 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
     } else {
       setSelectedSkills([...selectedSkills, skill]);
     }
+  };
+
+  const handleAddCustomSkill = () => {
+    const newSkill = customSkill.trim();
+    if (!newSkill) return;
+    if (!selectedSkills.includes(newSkill)) {
+      setSelectedSkills([...selectedSkills, newSkill]);
+    }
+    setCustomSkill("");
   };
 
   const getDashboardData = async () => {
@@ -135,7 +148,8 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
           numQuestions,
           timeLimit,
           useAi,
-          difficultyLevel
+          difficultyLevel,
+          questionType
         })
       });
 
@@ -197,6 +211,60 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
     setTimeout(() => setCopiedToken(null), 2000);
   };
 
+  const handleDeleteSession = async (sessionId: string) => {
+    const confirmed = window.confirm("Delete this candidate from your active pipeline? This will remove the session and invitation link.");
+    if (!confirmed) return;
+
+    const sessionToDelete = sessions.find((s) => s.id === sessionId);
+    if (sessionToDelete) {
+      setSessions((prev: AssessmentSession[]) => prev.filter((s) => s.id !== sessionId));
+      setInvitations((prev: EmailInvitation[]) => prev.filter((inv) => !(inv.assessmentId === sessionToDelete.assessmentId && inv.candidateEmail === sessionToDelete.candidateEmail)));
+    }
+
+    if (selectedSessionId === sessionId) {
+      setSelectedSessionId(null);
+    }
+
+    try {
+      const res = await fetch(`/api/sessions/${sessionId}`, {
+        method: "DELETE"
+      });
+
+      if (res.ok) {
+        await getDashboardData();
+      } else {
+        const errorData = await res.json();
+        console.error("Failed to delete session:", errorData.error || res.statusText);
+        await getDashboardData();
+      }
+    } catch (err) {
+      console.error("Failed to delete session:", err);
+      await getDashboardData();
+    }
+  };
+
+  const handleDeleteAssessment = async (assessmentId: string) => {
+    const confirmed = window.confirm("Delete this template? This will also remove all candidate sessions and invitations associated with it.");
+    if (!confirmed) return;
+
+    try {
+      const res = await fetch(`/api/assessments/${assessmentId}`, {
+        method: "DELETE"
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        console.error("Failed to delete assessment:", errorData.error || res.statusText);
+        return;
+      }
+
+      await getDashboardData();
+      setShowTemplateList(true);
+    } catch (err) {
+      console.error("Failed to delete assessment:", err);
+    }
+  };
+
   // PDF Export Performance Report generator using jsPDF
   const handleExportPdf = (session: AssessmentSession, assessment: Assessment | undefined) => {
     if (!assessment) return;
@@ -249,7 +317,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
 
     // 3. Overall Feedback block
     doc.setFont("Helvetica", "bold");
-    doc.text("AI GEMINI RECRUITER GRADE:", 14, 94);
+    doc.text("Suggestion", 14, 94);
     doc.setFont("Helvetica", "normal");
     doc.setTextColor(55, 65, 81);
     
@@ -274,12 +342,15 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
             yPos = 20;
           }
 
+          const answerText = evalItem.feedback || "Processed standardly.";
+          const splitAnswer = doc.splitTextToSize(answerText, 172);
+          const blockHeight = 28 + splitAnswer.length * 4;
+
           doc.setFillColor(249, 250, 251);
-          doc.rect(14, yPos, 182, 30, "F");
+          doc.rect(14, yPos, 182, blockHeight, "F");
 
           doc.setFont("Helvetica", "bold");
           doc.setTextColor(17, 24, 39);
-          // Truncate long questions for presentation space
           const cleanQText = originalQ.text.length > 85 ? originalQ.text.slice(0, 85) + "..." : originalQ.text;
           doc.text(`Q${idx + 1}: ${cleanQText}`, 18, yPos + 6);
 
@@ -290,33 +361,18 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
           doc.text(`Type: ${originalQ.type === "mcq" ? "MCQ Selection" : "Open short answer text"}`, 95, yPos + 12);
           doc.text(`Correct: ${evalItem.isCorrect ? "YES" : "NO"}`, 160, yPos + 12);
 
-          const answerText = evalItem.feedback || "Processed standardly.";
-          const splitAnswer = doc.splitTextToSize(answerText, 172);
-          doc.text(splitAnswer, 18, yPos + 18);
+          const correctAnswer = originalQ.type === "mcq"
+            ? originalQ.choices?.[originalQ.correctAnswerIndex ?? 0] || "N/A"
+            : originalQ.correctAnswerRubric || "N/A";
+          doc.text(`Correct Answer: ${correctAnswer}`, 18, yPos + 18);
+
+          doc.text(splitAnswer, 18, yPos + 24);
 
           doc.setFontSize(10);
-          yPos += 36;
+          yPos += blockHeight + 8;
         }
       });
     }
-
-    // 5. Secure Hash Stamp representing database cryptographic chain
-    if (yPos > 255) {
-      doc.addPage();
-      yPos = 20;
-    }
-
-    doc.setDrawColor(229, 231, 235);
-    doc.line(14, yPos, 196, yPos);
-    yPos += 8;
-
-    doc.setFont("Courier", "normal");
-    doc.setFontSize(8);
-    doc.setTextColor(107, 114, 128);
-    doc.text(`POSTGRES CRYPTO SECURE CHAIN ENVELOPE:`, 14, yPos);
-    doc.text(`${session.secureHash || "UNSIGNED-TAMPER_WARNING"}`, 14, yPos + 4);
-
-    doc.text(`Candidate Answers Saved Session Integrity: verified`, 14, yPos + 8);
 
     doc.save(`InterviewQuest_Report_${session.candidateName.replace(/\s+/g, "_")}.pdf`);
   };
@@ -680,7 +736,11 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
             <div className="space-y-6">
               {/* Recruiter metrics scorecard banners */}
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-xs">
+                <button
+                  type="button"
+                  onClick={() => setShowTemplateList((prev) => !prev)}
+                  className="bg-white p-5 rounded-2xl border border-gray-100 shadow-xs text-left hover:shadow-md transition-all"
+                >
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-semibold text-gray-400">EVALUATION TEMPLATES</span>
                     <div className="bg-indigo-50 text-indigo-600 p-2 rounded-xl">
@@ -688,8 +748,8 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                     </div>
                   </div>
                   <p className="text-2xl font-extrabold text-gray-900 mt-2">{stats.totalAssessments}</p>
-                  <span className="text-[9px] text-gray-400">Total skills defined specs</span>
-                </div>
+                  <span className="text-[9px] text-indigo-600 font-semibold">View templates</span>
+                </button>
 
                 <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-xs">
                   <div className="flex items-center justify-between">
@@ -726,6 +786,63 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                   <span className="text-[9px] text-gray-400">Baseline threshold 60% pass</span>
                 </div>
               </div>
+
+              {showTemplateList && (
+                <div className="bg-white rounded-2xl border border-gray-100 p-6 shadow-xs space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="text-sm font-bold text-gray-900">Evaluation Template Library</h3>
+                      <p className="text-xs text-gray-500">Manage assessment templates and remove outdated specs from the recruiter inventory.</p>
+                    </div>
+                    <button
+                      onClick={() => setShowTemplateList(false)}
+                      className="text-indigo-600 text-[11px] font-semibold hover:text-indigo-800"
+                    >
+                      Close
+                    </button>
+                  </div>
+
+                  {assessments.length === 0 ? (
+                    <div className="text-center text-gray-400 text-xs py-10">No assessment templates are currently available.</div>
+                  ) : (
+                    <div className="overflow-x-auto">
+                      <table className="w-full text-left text-xs border-collapse">
+                        <thead>
+                          <tr className="border-b border-gray-100 text-gray-400 uppercase tracking-wider text-[10px]">
+                            <th className="pb-3 font-semibold">Template Title</th>
+                            <th className="pb-3 font-semibold">Skills</th>
+                            <th className="pb-3 font-semibold text-center">Questions</th>
+                            <th className="pb-3 font-semibold text-center">Created</th>
+                            <th className="pb-3 font-semibold text-right">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-50">
+                          {assessments.map((template) => (
+                            <tr key={template.id} className="hover:bg-gray-50 transition-all text-gray-700">
+                              <td className="py-3">
+                                <div className="font-semibold text-gray-900">{template.title}</div>
+                                <div className="text-[10px] text-gray-500">Created by {template.creatorId}</div>
+                              </td>
+                              <td className="py-3 text-[10px] text-gray-600">{template.skills.join(", ")}</td>
+                              <td className="py-3 text-center font-semibold text-gray-900">{template.numQuestions}</td>
+                              <td className="py-3 text-center text-gray-500 text-[10px]">{new Date(template.createdAt).toLocaleDateString()}</td>
+                              <td className="py-3 text-right">
+                                <button
+                                  type="button"
+                                  onClick={() => handleDeleteAssessment(template.id)}
+                                  className="text-rose-500 hover:text-white hover:bg-rose-500 border border-rose-100 px-2 py-1 rounded-lg transition-all text-[11px] font-bold"
+                                >
+                                  Delete
+                                </button>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+                </div>
+              )}
 
               {/* Recruitment Activity table list */}
               <div className="bg-white rounded-2xl border border-gray-100 p-6 space-y-4 shadow-xs">
@@ -842,9 +959,25 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                                     >
                                       View Score
                                     </button>
+                                    <button
+                                      onClick={() => handleDeleteSession(session.id)}
+                                      className="text-rose-500 hover:text-white hover:bg-rose-500 border border-rose-100 px-2 py-1 rounded-lg transition-all text-[11px] font-bold"
+                                      title="Remove candidate from active pipeline"
+                                    >
+                                      Delete
+                                    </button>
                                   </div>
                                 ) : (
-                                  <span className="text-gray-400 italic text-[11px]">Exam Active</span>
+                                  <div className="flex items-center justify-end space-x-2">
+                                    <button
+                                      onClick={() => handleDeleteSession(session.id)}
+                                      className="text-rose-500 hover:text-white hover:bg-rose-500 border border-rose-100 px-2 py-1 rounded-lg transition-all text-[11px] font-bold"
+                                      title="Remove candidate from active pipeline"
+                                    >
+                                      Delete
+                                    </button>
+                                    <span className="text-gray-400 italic text-[11px]">Exam Active</span>
+                                  </div>
                                 )}
                               </td>
                             </tr>
@@ -890,7 +1023,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                 <div>
                   <span className="block text-xs font-semibold text-gray-700 mb-2">Testable Engineering Skills:</span>
                   <div className="flex flex-wrap gap-2">
-                    {skillOptions.map(skill => {
+                    {skillChips.map(skill => {
                       const isSelected = selectedSkills.includes(skill);
                       return (
                         <button
@@ -907,6 +1040,28 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                         </button>
                       );
                     })}
+                  </div>
+                  <div className="mt-3 flex flex-col sm:flex-row gap-2 items-stretch">
+                    <input
+                      type="text"
+                      placeholder="Add custom engineering skill"
+                      value={customSkill}
+                      onChange={(e) => setCustomSkill(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault();
+                          handleAddCustomSkill();
+                        }
+                      }}
+                      className="w-full text-xs rounded-xl border border-gray-200 px-3.5 py-2.5 focus:border-indigo-500 focus:outline-none"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleAddCustomSkill}
+                      className="shrink-0 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl px-4 py-2 transition-all"
+                    >
+                      Add Skill
+                    </button>
                   </div>
                 </div>
 
@@ -962,6 +1117,35 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                       </button>
                     ))}
                   </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                    Question Type
+                  </label>
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    {([
+                      { value: "mcq", label: "MCQ only" },
+                      { value: "descriptive", label: "Descriptive only" },
+                      { value: "mixed", label: "Mixed MCQ + Descriptive" }
+                    ] as const).map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        onClick={() => setQuestionType(option.value)}
+                        className={`px-3 py-2 rounded-xl text-xs font-medium border transition-all ${
+                          questionType === option.value
+                            ? "bg-indigo-600 text-white border-indigo-600 shadow-sm"
+                            : "bg-white text-gray-600 border-gray-200 hover:bg-gray-50"
+                        }`}
+                      >
+                        {option.label}
+                      </button>
+                    ))}
+                  </div>
+                  <p className="text-[11px] text-gray-500 mt-2">
+                    Choose how the questionnaire should be composed. Mixed will include both MCQ and descriptive questions.
+                  </p>
                 </div>
 
                 {/* Gemini AI Toggler matching guideline MAJOR_CAPABILITY */}
@@ -1054,6 +1238,13 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
                                 className="bg-indigo-600 text-white px-2.5 py-1 text-[11px] rounded-lg hover:bg-indigo-700"
                               >
                                 Review Dossier
+                              </button>
+                              <button
+                                onClick={() => handleDeleteSession(sess.id)}
+                                className="text-rose-500 hover:text-white hover:bg-rose-500 border border-rose-100 px-2 py-1 rounded-lg transition-all text-[11px] font-bold"
+                                title="Remove candidate from active pipeline"
+                              >
+                                Delete
                               </button>
                             </div>
                           </div>

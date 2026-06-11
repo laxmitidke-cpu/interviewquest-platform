@@ -579,6 +579,27 @@ export class Database {
     return assessment;
   }
 
+  public deleteAssessment(id: string): boolean {
+    const index = this.data.assessments.findIndex(a => a.id === id);
+    if (index === -1) {
+      return false;
+    }
+
+    const assessment = this.data.assessments[index];
+    this.data.assessments.splice(index, 1);
+
+    const removedSessions = this.data.sessions.filter(s => s.assessmentId === id);
+    this.data.sessions = this.data.sessions.filter(s => s.assessmentId !== id);
+    this.data.invitations = this.data.invitations.filter(inv => inv.assessmentId !== id);
+
+    this.logAudit("DELETE_ASSESSMENT", id, "assessments", "RECRUITER", `Deleted assessment template: ${assessment.title}`);
+    removedSessions.forEach((session) => {
+      this.logAudit("DELETE_SESSION", session.id, "sessions", "RECRUITER", `Deleted session from removed assessment: ${session.candidateEmail}`);
+    });
+    this.save();
+    return true;
+  }
+
   public getAssessments() {
     return this.data.assessments;
   }
@@ -622,6 +643,28 @@ export class Database {
       this.save();
     }
     return session;
+  }
+
+  public deleteSession(id: string): boolean {
+    const index = this.data.sessions.findIndex(s => s.id === id);
+    if (index === -1) {
+      return false;
+    }
+
+    const session = this.data.sessions[index];
+    this.data.sessions.splice(index, 1);
+    this.logAudit("DELETE_SESSION", id, "sessions", "RECRUITER", `Deleted candidate session for ${session.candidateEmail}`);
+
+    this.data.invitations = this.data.invitations.filter(inv => {
+      const keep = !(inv.assessmentId === session.assessmentId && inv.candidateEmail === session.candidateEmail);
+      if (!keep) {
+        this.logAudit("DELETE_INVITATION", inv.id, "invitations", "RECRUITER", `Deleted invitation for ${inv.candidateEmail}`);
+      }
+      return keep;
+    });
+
+    this.save();
+    return true;
   }
 
   public getSessions() {

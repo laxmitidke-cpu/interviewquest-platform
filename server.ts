@@ -16,7 +16,7 @@ dotenv.config({ path: ".env.local" });
 
 async function startServer() {
   const app = express();
-  const APP_URL = process.env.APP_URL || "http://quest1.0.com";
+  const APP_URL = process.env.APP_URL || "http://localhost:3000";
   const defaultPort = (() => {
     try {
       const urlObj = new URL(APP_URL);
@@ -68,27 +68,47 @@ async function startServer() {
     res.json({ assessments });
   });
 
+  // Delete an assessment template and clean up related sessions
+  app.delete("/api/assessments/:id", (req, res) => {
+    const { id } = req.params;
+    try {
+      const deleted = db.deleteAssessment(id);
+      if (!deleted) {
+        return res.status(404).json({ error: "Assessment not found." });
+      }
+      res.json({ success: true });
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
   // Create new interview assessment questionnaire
   app.post("/api/assessments", async (req, res) => {
-    const { title, creatorId, skills, numQuestions, timeLimit, useAi, difficultyLevel } = req.body;
+    const { title, creatorId, skills, numQuestions, timeLimit, useAi, difficultyLevel, questionType } = req.body;
 
     if (!title || !skills || !numQuestions || !timeLimit) {
       return res.status(400).json({ error: "Missing required assessment parameters." });
     }
 
     const normalizedDifficulty = ["easy", "medium", "hard"].includes(difficultyLevel) ? difficultyLevel : "medium";
+    const normalizedQuestionType = ["mcq", "descriptive", "mixed"].includes(questionType) ? questionType : "mixed";
+    const allowedTypes = normalizedQuestionType === "mcq"
+      ? ["mcq"]
+      : normalizedQuestionType === "descriptive"
+        ? ["short_answer"]
+        : ["mcq", "short_answer"];
 
     try {
       let finalQuestions = [];
 
       if (useAi) {
-        db.logAudit("AI_GENERATION_START", "pending", "assessments", creatorId, `Requesting Gemini to draft ${numQuestions} ${normalizedDifficulty} questions for skills: ${skills.join(", ")}`);
-        finalQuestions = await generateAiQuestions(skills, numQuestions, normalizedDifficulty);
+        db.logAudit("AI_GENERATION_START", "pending", "assessments", creatorId, `Requesting Gemini to draft ${numQuestions} ${normalizedDifficulty} ${normalizedQuestionType === "mixed" ? "mixed" : normalizedQuestionType.toUpperCase()} questions for skills: ${skills.join(", ")}`);
+        finalQuestions = await generateAiQuestions(skills, numQuestions, normalizedDifficulty, normalizedQuestionType);
       } else {
         // Fallback to our Static seeded Question pool
         const staticList = PREDEFINED_QUESTIONS;
         const matchingQuestions = staticList.filter((q: any) =>
-          q.skills.some((s: string) => skills.includes(s))
+          q.skills.some((s: string) => skills.includes(s)) && allowedTypes.includes(q.type)
         );
 
         // Map and randomize
@@ -107,16 +127,30 @@ async function startServer() {
           const gap = numQuestions - finalQuestions.length;
           for (let i = 0; i < gap; i++) {
             const skill = skills[i % skills.length] || "General";
+            const type = allowedTypes.length === 1
+              ? allowedTypes[0]
+              : i % 2 === 0
+                ? "mcq"
+                : "short_answer";
             finalQuestions.push({
               id: `q-custom-${i}-${Math.floor(Math.random() * 10000)}`,
-              type: i % 2 === 0 ? "mcq" : "short_answer",
-              text: `Explain standard concurrency bottlenecks when managing ${skill} systems. How does caching alleviate performance issues?`,
+              type,
+              text: type === "mcq"
+                ? `Select the most appropriate architecture decision for optimizing ${skill} service reliability in a distributed environment.`
+                : `Describe how you would design a scalable ${skill} solution and explain the key trade-offs involved.`,
               skills: [skill],
-              points: i % 2 === 0 ? 10 : 15,
+              points: type === "mcq" ? 10 : 15,
               difficulty: normalizedDifficulty,
-              choices: i % 2 === 0 ? ["Enforcing database thread locks", "Implementing memory level caches like Redis", "Restricting total regional users", "Using system raw text flat files"] : undefined,
-              correctAnswerIndex: i % 2 === 0 ? 1 : undefined,
-              correctAnswerRubric: `Candidate must explain Redis caching systems, memory-level retrievals, avoiding heavy databases disk operations, and mitigation of simultaneous I/O queries.`
+              choices: type === "mcq" ? [
+                "Using stateless services with auto-scaling and health checks",
+                "Relying on a single monolithic server for all requests",
+                "Distributing traffic through an unmonitored network gateway",
+                "Deploying duplicated databases without replication"
+              ] : undefined,
+              correctAnswerIndex: type === "mcq" ? 0 : undefined,
+              correctAnswerRubric: type === "short_answer"
+                ? `Candidate should explain key design decisions, scaling strategies, resiliency patterns, and trade-offs relevant to ${skill}.`
+                : undefined
             });
           }
         }
@@ -128,6 +162,7 @@ async function startServer() {
         skills,
         numQuestions,
         timeLimit: parseInt(timeLimit),
+        questionType: normalizedQuestionType,
         questions: finalQuestions
       });
 
@@ -223,6 +258,20 @@ async function startServer() {
       const inviteHost = hostUrl || process.env.APP_URL || PUBLIC_URL;
       const invitation = db.createInvitation(assessmentId, candidateEmail, candidateName, inviteHost);
       res.json({ success: true, invitation });
+    } catch (err: any) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+
+  // Delete candidate session from recruiter pipeline
+  app.delete("/api/sessions/:id", (req, res) => {
+    const { id } = req.params;
+    try {
+      const deleted = db.deleteSession(id);
+      if (!deleted) {
+        return res.status(404).json({ error: "Candidate session not found." });
+      }
+      res.json({ success: true });
     } catch (err: any) {
       res.status(500).json({ error: err.message });
     }

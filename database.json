@@ -5,14 +5,14 @@
       "email": "laxmitidke@gmail.com",
       "name": "Laxmi Tidke",
       "role": "admin",
-      "createdAt": "2026-05-27T16:04:02.165Z"
+      "createdAt": "2026-06-04T16:36:30.303Z"
     },
     {
       "id": "cand-default",
       "email": "candidate@example.com",
       "name": "Alex Rivera",
       "role": "candidate",
-      "createdAt": "2026-05-27T16:04:02.167Z"
+      "createdAt": "2026-06-04T16:36:30.306Z"
     }
   ],
   "assessments": [
@@ -26,7 +26,7 @@
       ],
       "numQuestions": 3,
       "timeLimit": 15,
-      "createdAt": "2026-05-27T16:04:02.168Z",
+      "createdAt": "2026-06-04T16:36:30.306Z",
       "questions": [
         {
           "id": "q-r1",
@@ -71,162 +71,6 @@
           "correctAnswerRubric": "Candidate should explain that SSR executes React on the server to output HTML, reducing initial load times (First Contentful Paint) and improving SEO. CSR ships minimal HTML and runs JS in browser, which has slower initial paints but faster subsequent transitions. Tradeoffs include server load (SSR increases CPU demands) and Interactivity lag (TTL)."
         }
       ]
-    },
-    {
-      "title": "Networking_CI/CD",
-      "creatorId": "admin-laxmi",
-      "skills": [
-        "Networking",
-        "CI/CD tools"
-      ],
-      "numQuestions": 10,
-      "timeLimit": 20,
-      "questions": [
-        {
-          "id": "q-fallback-1",
-          "type": "mcq",
-          "text": "For a project prioritizing rapid concurrency, how does the event cycle optimize resource utilization?",
-          "skills": [
-            "Networking"
-          ],
-          "points": 10,
-          "choices": [
-            "By enforcing strict synchronized blocking across each request thread.",
-            "By utilizing a single-threaded non-blocking asynchronous event loop structure.",
-            "By increasing server memory requirements automatically to cache values.",
-            "By executing database requests sequentially in separate JVM worker nodes."
-          ],
-          "correctAnswerIndex": 1
-        },
-        {
-          "id": "q-fallback-2",
-          "type": "short_answer",
-          "text": "Detail critical implementation patterns for securing state transactions when integrating with web applications. What features prevent intercept attacks?",
-          "skills": [
-            "CI/CD tools"
-          ],
-          "points": 15,
-          "correctAnswerRubric": "Candidate should detail the usage of JWT / secure authentication authorization mechanisms, HTTPS endpoints, CSRF token injections, and validation of request payloads to ensure data is not tampered."
-        },
-        {
-          "id": "q-fallback-3",
-          "type": "mcq",
-          "text": "Which architectural approach represents the optimal solution for managing scaling parameters?",
-          "skills": [
-            "Networking"
-          ],
-          "choices": [
-            "Vertically scaling a single database instance indefinitely until hardware constraints are met.",
-            "Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.",
-            "Restricting application usage to specific regions only.",
-            "Replacing all databases with simple unindexed flat files for raw speed."
-          ],
-          "correctAnswerIndex": 1,
-          "points": 10
-        },
-        {
-          "id": "q-fallback-4",
-          "type": "mcq",
-          "text": "For a project prioritizing rapid concurrency, how does the event cycle optimize resource utilization?",
-          "skills": [
-            "CI/CD tools"
-          ],
-          "points": 10,
-          "choices": [
-            "By enforcing strict synchronized blocking across each request thread.",
-            "By utilizing a single-threaded non-blocking asynchronous event loop structure.",
-            "By increasing server memory requirements automatically to cache values.",
-            "By executing database requests sequentially in separate JVM worker nodes."
-          ],
-          "correctAnswerIndex": 1
-        },
-        {
-          "id": "q-fallback-5",
-          "type": "short_answer",
-          "text": "Detail critical implementation patterns for securing state transactions when integrating with web applications. What features prevent intercept attacks?",
-          "skills": [
-            "Networking"
-          ],
-          "points": 15,
-          "correctAnswerRubric": "Candidate should detail the usage of JWT / secure authentication authorization mechanisms, HTTPS endpoints, CSRF token injections, and validation of request payloads to ensure data is not tampered."
-        },
-        {
-          "id": "q-fallback-6",
-          "type": "mcq",
-          "text": "Which architectural approach represents the optimal solution for managing scaling parameters?",
-          "skills": [
-            "CI/CD tools"
-          ],
-          "choices": [
-            "Vertically scaling a single database instance indefinitely until hardware constraints are met.",
-            "Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.",
-            "Restricting application usage to specific regions only.",
-            "Replacing all databases with simple unindexed flat files for raw speed."
-          ],
-          "correctAnswerIndex": 1,
-          "points": 10
-        },
-        {
-          "id": "q-fallback-7",
-          "type": "mcq",
-          "text": "For a project prioritizing rapid concurrency, how does the event cycle optimize resource utilization?",
-          "skills": [
-            "Networking"
-          ],
-          "points": 10,
-          "choices": [
-            "By enforcing strict synchronized blocking across each request thread.",
-            "By utilizing a single-threaded non-blocking asynchronous event loop structure.",
-            "By increasing server memory requirements automatically to cache values.",
-            "By executing database requests sequentially in separate JVM worker nodes."
-          ],
-          "correctAnswerIndex": 1
-        },
-        {
-          "id": "q-fallback-8",
-          "type": "short_answer",
-          "text": "Detail critical implementation patterns for securing state transactions when integrating with web applications. What features prevent intercept attacks?",
-          "skills": [
-            "CI/CD tools"
-          ],
-          "points": 15,
-          "correctAnswerRubric": "Candidate should detail the usage of JWT / secure authentication authorization mechanisms, HTTPS endpoints, CSRF token injections, and validation of request payloads to ensure data is not tampered."
-        },
-        {
-          "id": "q-fallback-9",
-          "type": "mcq",
-          "text": "Which architectural approach represents the optimal solution for managing scaling parameters?",
-          "skills": [
-            "Networking"
-          ],
-          "choices": [
-            "Vertically scaling a single database instance indefinitely until hardware constraints are met.",
-            "Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.",
-            "Restricting application usage to specific regions only.",
-            "Replacing all databases with simple unindexed flat files for raw speed."
-          ],
-          "correctAnswerIndex": 1,
-          "points": 10
-        },
-        {
-          "id": "q-fallback-10",
-          "type": "mcq",
-          "text": "For a project prioritizing rapid concurrency, how does the event cycle optimize resource utilization?",
-          "skills": [
-            "CI/CD tools"
-          ],
-          "points": 10,
-          "choices": [
-            "By enforcing strict synchronized blocking across each request thread.",
-            "By utilizing a single-threaded non-blocking asynchronous event loop structure.",
-            "By increasing server memory requirements automatically to cache values.",
-            "By executing database requests sequentially in separate JVM worker nodes."
-          ],
-          "correctAnswerIndex": 1
-        }
-      ],
-      "id": "asm-fb031b750b085bfc",
-      "createdAt": "2026-06-04T10:23:36.603Z"
     }
   ],
   "sessions": [
@@ -236,8 +80,8 @@
       "candidateEmail": "candidate@example.com",
       "candidateName": "Alex Rivera",
       "status": "submitted",
-      "startedAt": "2026-05-27T15:04:02.168Z",
-      "completedAt": "2026-05-27T15:24:02.168Z",
+      "startedAt": "2026-06-04T15:36:30.306Z",
+      "completedAt": "2026-06-04T15:56:30.306Z",
       "answers": [
         {
           "questionId": "q-r1",
@@ -282,276 +126,821 @@
         "overallFeedback": "Strong conceptual understanding of full-stack rendering dynamics. Highly competent in React hooks, core Node.js runtime operations and systems scalability."
       },
       "secureHash": "231e0109617990fe713a266cccbb8896ff163dcf931ae5b4aad7cc1771a8db38"
-    },
-    {
-      "id": "sess-8f4f1a93d91d2dad8814",
-      "assessmentId": "asm-fb031b750b085bfc",
-      "candidateEmail": "anything@gmai.com",
-      "candidateName": "Candidate_Networking",
-      "status": "submitted",
-      "answers": [
-        {
-          "questionId": "q-fallback-1",
-          "selectedAnswerIndex": 1,
-          "typedAnswer": "",
-          "timeSpentSec": 1
-        },
-        {
-          "questionId": "q-fallback-2",
-          "typedAnswer": "zsklfsldfk",
-          "timeSpentSec": 4
-        },
-        {
-          "questionId": "q-fallback-3",
-          "selectedAnswerIndex": 0,
-          "typedAnswer": "",
-          "timeSpentSec": 1
-        },
-        {
-          "questionId": "q-fallback-4",
-          "selectedAnswerIndex": 2,
-          "typedAnswer": "",
-          "timeSpentSec": 1
-        },
-        {
-          "questionId": "q-fallback-5",
-          "typedAnswer": "sdflksf;lsd;",
-          "timeSpentSec": 3
-        },
-        {
-          "questionId": "q-fallback-6",
-          "selectedAnswerIndex": 3,
-          "typedAnswer": "",
-          "timeSpentSec": 1
-        },
-        {
-          "questionId": "q-fallback-7",
-          "selectedAnswerIndex": 3,
-          "typedAnswer": "",
-          "timeSpentSec": 0
-        },
-        {
-          "questionId": "q-fallback-8",
-          "typedAnswer": "skldfjsldfkjs",
-          "timeSpentSec": 3
-        },
-        {
-          "questionId": "q-fallback-9",
-          "selectedAnswerIndex": 2,
-          "typedAnswer": "",
-          "timeSpentSec": 1
-        },
-        {
-          "questionId": "q-fallback-10",
-          "selectedAnswerIndex": 3,
-          "typedAnswer": "",
-          "timeSpentSec": 2
-        }
-      ],
-      "secureHash": "fd5f4c202c34c50fa587d14855291e8594f7abc1475dace850715c36e1ed05a8",
-      "startedAt": "2026-06-04T10:24:37.186Z",
-      "completedAt": "2026-06-04T10:25:04.599Z",
-      "results": {
-        "totalScore": 10,
-        "maxScore": 115,
-        "passed": false,
-        "evaluations": [
-          {
-            "questionId": "q-fallback-1",
-            "pointsEarned": 10,
-            "isCorrect": true,
-            "feedback": "Correct multiple choice answer selection!"
-          },
-          {
-            "questionId": "q-fallback-3",
-            "pointsEarned": 0,
-            "isCorrect": false,
-            "feedback": "Incorrect selection. The candidate chose: \"Vertically scaling a single database instance indefinitely until hardware constraints are met.\". The correct answer is: \"Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.\"."
-          },
-          {
-            "questionId": "q-fallback-4",
-            "pointsEarned": 0,
-            "isCorrect": false,
-            "feedback": "Incorrect selection. The candidate chose: \"By increasing server memory requirements automatically to cache values.\". The correct answer is: \"By utilizing a single-threaded non-blocking asynchronous event loop structure.\"."
-          },
-          {
-            "questionId": "q-fallback-6",
-            "pointsEarned": 0,
-            "isCorrect": false,
-            "feedback": "Incorrect selection. The candidate chose: \"Replacing all databases with simple unindexed flat files for raw speed.\". The correct answer is: \"Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.\"."
-          },
-          {
-            "questionId": "q-fallback-7",
-            "pointsEarned": 0,
-            "isCorrect": false,
-            "feedback": "Incorrect selection. The candidate chose: \"By executing database requests sequentially in separate JVM worker nodes.\". The correct answer is: \"By utilizing a single-threaded non-blocking asynchronous event loop structure.\"."
-          },
-          {
-            "questionId": "q-fallback-9",
-            "pointsEarned": 0,
-            "isCorrect": false,
-            "feedback": "Incorrect selection. The candidate chose: \"Restricting application usage to specific regions only.\". The correct answer is: \"Horizontal scaling with stateless container deployments, load balancing, and read-replicas for databases.\"."
-          },
-          {
-            "questionId": "q-fallback-10",
-            "pointsEarned": 0,
-            "isCorrect": false,
-            "feedback": "Incorrect selection. The candidate chose: \"By executing database requests sequentially in separate JVM worker nodes.\". The correct answer is: \"By utilizing a single-threaded non-blocking asynchronous event loop structure.\"."
-          },
-          {
-            "questionId": "q-fallback-2",
-            "pointsEarned": 0,
-            "isCorrect": false,
-            "feedback": "[Local Analyzer Fallback] Calculated score based on length (1 words). Candidate answers have been cached securely for manual review by recruiter."
-          },
-          {
-            "questionId": "q-fallback-5",
-            "pointsEarned": 0,
-            "isCorrect": false,
-            "feedback": "[Local Analyzer Fallback] Calculated score based on length (1 words). Candidate answers have been cached securely for manual review by recruiter."
-          },
-          {
-            "questionId": "q-fallback-8",
-            "pointsEarned": 0,
-            "isCorrect": false,
-            "feedback": "[Local Analyzer Fallback] Calculated score based on length (1 words). Candidate answers have been cached securely for manual review by recruiter."
-          }
-        ],
-        "overallFeedback": "Further screening advised. Points earned do not meet full baseline expectation."
-      }
     }
   ],
-  "invitations": [
-    {
-      "id": "inv-9eabcd0c38251607",
-      "assessmentId": "asm-fb031b750b085bfc",
-      "candidateEmail": "anything@gmai.com",
-      "candidateName": "Candidate_Networking",
-      "token": "f1507cf43669ec95372ff545bef8119a",
-      "status": "completed",
-      "sentAt": "2026-06-04T10:24:21.567Z",
-      "completedAt": "2026-06-04T10:25:04.602Z"
-    }
-  ],
+  "invitations": [],
   "emails": [
     {
-      "id": "mail-295318aa6cae4b02",
-      "toEmail": "anything@gmai.com",
-      "toName": "Candidate_Networking",
-      "subject": "Assessment Invitation: Networking_CI/CD",
-      "htmlBody": "\n      <div style=\"font-family: Arial, sans-serif; max-width: 550px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937;\">\n        <h2 style=\"color: #4f46e5; margin-top: 0;\">Online Technical Interview Invitation</h2>\n        <p>Dear <strong>Candidate_Networking</strong>,</p>\n        <p>You have been formally invited to complete an online screening assessment for the role of senior engineer.</p>\n        \n        <div style=\"background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 12px; margin: 18px 0; border-radius: 0 4px 4px 0;\">\n          <h4 style=\"margin: 0 0 6px 0; color: #111827;\">Assessment Overview:</h4>\n          <ul style=\"margin: 0; padding-left: 18px;\">\n            <li><strong>Subject:</strong> Networking_CI/CD</li>\n            <li><strong>Target Skills:</strong> Networking, CI/CD tools</li>\n            <li><strong>Time Constraint:</strong> 20 minutes</li>\n            <li><strong>Form Type:</strong> MCQ + In-Depth Short Answer</li>\n          </ul>\n        </div>\n\n        <p style=\"margin-top: 24px;\">Please click the direct link below to access your sandbox. Ensure a stable network connection before starting. State is saved securely.</p>\n        \n        <div style=\"text-align: center; margin: 28px 0;\">\n          <a href=\"http://quest:3000/?token=f1507cf43669ec95372ff545bef8119a\" style=\"background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 14px;\">Start Assessment Session</a>\n        </div>\n\n        <p style=\"font-size: 12px; color: #6b7280; text-align: center; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;\">This link is unique to you. Do not share. Verified secure encryption by Postgres/Signer.</p>\n      </div>\n    ",
-      "sentAt": "2026-06-04T10:24:21.567Z",
+      "id": "mail-49057a4f0a4c44f8",
+      "toEmail": "c3@g.com",
+      "toName": "c3",
+      "subject": "Assessment Invitation: Type_2",
+      "htmlBody": "\n      <div style=\"font-family: Arial, sans-serif; max-width: 550px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937;\">\n        <h2 style=\"color: #4f46e5; margin-top: 0;\">Online Technical Interview Invitation</h2>\n        <p>Dear <strong>c3</strong>,</p>\n        <p>You have been formally invited to complete an online screening assessment for the role of senior engineer.</p>\n        \n        <div style=\"background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 12px; margin: 18px 0; border-radius: 0 4px 4px 0;\">\n          <h4 style=\"margin: 0 0 6px 0; color: #111827;\">Assessment Overview:</h4>\n          <ul style=\"margin: 0; padding-left: 18px;\">\n            <li><strong>Subject:</strong> Type_2</li>\n            <li><strong>Target Skills:</strong> React</li>\n            <li><strong>Time Constraint:</strong> 20 minutes</li>\n            <li><strong>Form Type:</strong> MCQ + In-Depth Short Answer</li>\n          </ul>\n        </div>\n\n        <p style=\"margin-top: 24px;\">Please click the direct link below to access your sandbox. Ensure a stable network connection before starting. State is saved securely.</p>\n        \n        <div style=\"text-align: center; margin: 28px 0;\">\n          <a href=\"http://localhost:3000/login?token=b7e4f7add6b4424d0d160dddfee3b7cf\" style=\"background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 14px;\">Start Assessment Session</a>\n        </div>\n\n        <p style=\"font-size: 12px; color: #6b7280; text-align: center; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;\">This link is unique to you. Do not share. Verified secure encryption by Postgres/Signer.</p>\n      </div>\n    ",
+      "sentAt": "2026-06-08T16:41:11.697Z",
+      "status": "delivered"
+    },
+    {
+      "id": "mail-a405b1e850a8c071",
+      "toEmail": "c2@c.com",
+      "toName": "c2",
+      "subject": "Assessment Invitation: Type_2",
+      "htmlBody": "\n      <div style=\"font-family: Arial, sans-serif; max-width: 550px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937;\">\n        <h2 style=\"color: #4f46e5; margin-top: 0;\">Online Technical Interview Invitation</h2>\n        <p>Dear <strong>c2</strong>,</p>\n        <p>You have been formally invited to complete an online screening assessment for the role of senior engineer.</p>\n        \n        <div style=\"background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 12px; margin: 18px 0; border-radius: 0 4px 4px 0;\">\n          <h4 style=\"margin: 0 0 6px 0; color: #111827;\">Assessment Overview:</h4>\n          <ul style=\"margin: 0; padding-left: 18px;\">\n            <li><strong>Subject:</strong> Type_2</li>\n            <li><strong>Target Skills:</strong> React</li>\n            <li><strong>Time Constraint:</strong> 20 minutes</li>\n            <li><strong>Form Type:</strong> MCQ + In-Depth Short Answer</li>\n          </ul>\n        </div>\n\n        <p style=\"margin-top: 24px;\">Please click the direct link below to access your sandbox. Ensure a stable network connection before starting. State is saved securely.</p>\n        \n        <div style=\"text-align: center; margin: 28px 0;\">\n          <a href=\"http://localhost:3000/login?token=08be8d707a2786af0a465c7a8894be1c\" style=\"background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 14px;\">Start Assessment Session</a>\n        </div>\n\n        <p style=\"font-size: 12px; color: #6b7280; text-align: center; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;\">This link is unique to you. Do not share. Verified secure encryption by Postgres/Signer.</p>\n      </div>\n    ",
+      "sentAt": "2026-06-08T16:37:59.003Z",
+      "status": "delivered"
+    },
+    {
+      "id": "mail-cb9c22d1090f7af1",
+      "toEmail": "c@t2.com",
+      "toName": "C_t1",
+      "subject": "Assessment Invitation: Type1",
+      "htmlBody": "\n      <div style=\"font-family: Arial, sans-serif; max-width: 550px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937;\">\n        <h2 style=\"color: #4f46e5; margin-top: 0;\">Online Technical Interview Invitation</h2>\n        <p>Dear <strong>C_t1</strong>,</p>\n        <p>You have been formally invited to complete an online screening assessment for the role of senior engineer.</p>\n        \n        <div style=\"background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 12px; margin: 18px 0; border-radius: 0 4px 4px 0;\">\n          <h4 style=\"margin: 0 0 6px 0; color: #111827;\">Assessment Overview:</h4>\n          <ul style=\"margin: 0; padding-left: 18px;\">\n            <li><strong>Subject:</strong> Type1</li>\n            <li><strong>Target Skills:</strong> React</li>\n            <li><strong>Time Constraint:</strong> 20 minutes</li>\n            <li><strong>Form Type:</strong> MCQ + In-Depth Short Answer</li>\n          </ul>\n        </div>\n\n        <p style=\"margin-top: 24px;\">Please click the direct link below to access your sandbox. Ensure a stable network connection before starting. State is saved securely.</p>\n        \n        <div style=\"text-align: center; margin: 28px 0;\">\n          <a href=\"http://localhost:3000/login?token=397946dd9c867099d882cb0c7445e88a\" style=\"background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 14px;\">Start Assessment Session</a>\n        </div>\n\n        <p style=\"font-size: 12px; color: #6b7280; text-align: center; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;\">This link is unique to you. Do not share. Verified secure encryption by Postgres/Signer.</p>\n      </div>\n    ",
+      "sentAt": "2026-06-08T16:33:28.955Z",
+      "status": "delivered"
+    },
+    {
+      "id": "mail-ac40c64a0ddc5171",
+      "toEmail": "c@t2.com",
+      "toName": "C_type2",
+      "subject": "Assessment Invitation: Type_2",
+      "htmlBody": "\n      <div style=\"font-family: Arial, sans-serif; max-width: 550px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937;\">\n        <h2 style=\"color: #4f46e5; margin-top: 0;\">Online Technical Interview Invitation</h2>\n        <p>Dear <strong>C_type2</strong>,</p>\n        <p>You have been formally invited to complete an online screening assessment for the role of senior engineer.</p>\n        \n        <div style=\"background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 12px; margin: 18px 0; border-radius: 0 4px 4px 0;\">\n          <h4 style=\"margin: 0 0 6px 0; color: #111827;\">Assessment Overview:</h4>\n          <ul style=\"margin: 0; padding-left: 18px;\">\n            <li><strong>Subject:</strong> Type_2</li>\n            <li><strong>Target Skills:</strong> React</li>\n            <li><strong>Time Constraint:</strong> 20 minutes</li>\n            <li><strong>Form Type:</strong> MCQ + In-Depth Short Answer</li>\n          </ul>\n        </div>\n\n        <p style=\"margin-top: 24px;\">Please click the direct link below to access your sandbox. Ensure a stable network connection before starting. State is saved securely.</p>\n        \n        <div style=\"text-align: center; margin: 28px 0;\">\n          <a href=\"http://localhost:3000/login?token=6dbc8b1d5730d9d458743194a8bbfae0\" style=\"background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 14px;\">Start Assessment Session</a>\n        </div>\n\n        <p style=\"font-size: 12px; color: #6b7280; text-align: center; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;\">This link is unique to you. Do not share. Verified secure encryption by Postgres/Signer.</p>\n      </div>\n    ",
+      "sentAt": "2026-06-08T16:28:42.715Z",
+      "status": "delivered"
+    },
+    {
+      "id": "mail-d9461cfd6b2b6c63",
+      "toEmail": "c@t.com",
+      "toName": "c_type1",
+      "subject": "Assessment Invitation: Type1",
+      "htmlBody": "\n      <div style=\"font-family: Arial, sans-serif; max-width: 550px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937;\">\n        <h2 style=\"color: #4f46e5; margin-top: 0;\">Online Technical Interview Invitation</h2>\n        <p>Dear <strong>c_type1</strong>,</p>\n        <p>You have been formally invited to complete an online screening assessment for the role of senior engineer.</p>\n        \n        <div style=\"background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 12px; margin: 18px 0; border-radius: 0 4px 4px 0;\">\n          <h4 style=\"margin: 0 0 6px 0; color: #111827;\">Assessment Overview:</h4>\n          <ul style=\"margin: 0; padding-left: 18px;\">\n            <li><strong>Subject:</strong> Type1</li>\n            <li><strong>Target Skills:</strong> React</li>\n            <li><strong>Time Constraint:</strong> 20 minutes</li>\n            <li><strong>Form Type:</strong> MCQ + In-Depth Short Answer</li>\n          </ul>\n        </div>\n\n        <p style=\"margin-top: 24px;\">Please click the direct link below to access your sandbox. Ensure a stable network connection before starting. State is saved securely.</p>\n        \n        <div style=\"text-align: center; margin: 28px 0;\">\n          <a href=\"http://localhost:3000/login?token=3e19258f9804dd9ddf16b1fa78f29839\" style=\"background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 14px;\">Start Assessment Session</a>\n        </div>\n\n        <p style=\"font-size: 12px; color: #6b7280; text-align: center; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;\">This link is unique to you. Do not share. Verified secure encryption by Postgres/Signer.</p>\n      </div>\n    ",
+      "sentAt": "2026-06-08T16:22:55.161Z",
+      "status": "delivered"
+    },
+    {
+      "id": "mail-a5c433e6b2395eeb",
+      "toEmail": "c@t.com",
+      "toName": "C_type 1",
+      "subject": "Assessment Invitation: Type1",
+      "htmlBody": "\n      <div style=\"font-family: Arial, sans-serif; max-width: 550px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937;\">\n        <h2 style=\"color: #4f46e5; margin-top: 0;\">Online Technical Interview Invitation</h2>\n        <p>Dear <strong>C_type 1</strong>,</p>\n        <p>You have been formally invited to complete an online screening assessment for the role of senior engineer.</p>\n        \n        <div style=\"background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 12px; margin: 18px 0; border-radius: 0 4px 4px 0;\">\n          <h4 style=\"margin: 0 0 6px 0; color: #111827;\">Assessment Overview:</h4>\n          <ul style=\"margin: 0; padding-left: 18px;\">\n            <li><strong>Subject:</strong> Type1</li>\n            <li><strong>Target Skills:</strong> React</li>\n            <li><strong>Time Constraint:</strong> 20 minutes</li>\n            <li><strong>Form Type:</strong> MCQ + In-Depth Short Answer</li>\n          </ul>\n        </div>\n\n        <p style=\"margin-top: 24px;\">Please click the direct link below to access your sandbox. Ensure a stable network connection before starting. State is saved securely.</p>\n        \n        <div style=\"text-align: center; margin: 28px 0;\">\n          <a href=\"http://localhost:3000/login?token=76e4cdcf9172b9582c4504de2d52dc26\" style=\"background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 14px;\">Start Assessment Session</a>\n        </div>\n\n        <p style=\"font-size: 12px; color: #6b7280; text-align: center; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;\">This link is unique to you. Do not share. Verified secure encryption by Postgres/Signer.</p>\n      </div>\n    ",
+      "sentAt": "2026-06-08T16:22:17.048Z",
+      "status": "delivered"
+    },
+    {
+      "id": "mail-fd3c5d7137d2fdd1",
+      "toEmail": "c@t.com",
+      "toName": "C_type1",
+      "subject": "Assessment Invitation: Type1",
+      "htmlBody": "\n      <div style=\"font-family: Arial, sans-serif; max-width: 550px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937;\">\n        <h2 style=\"color: #4f46e5; margin-top: 0;\">Online Technical Interview Invitation</h2>\n        <p>Dear <strong>C_type1</strong>,</p>\n        <p>You have been formally invited to complete an online screening assessment for the role of senior engineer.</p>\n        \n        <div style=\"background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 12px; margin: 18px 0; border-radius: 0 4px 4px 0;\">\n          <h4 style=\"margin: 0 0 6px 0; color: #111827;\">Assessment Overview:</h4>\n          <ul style=\"margin: 0; padding-left: 18px;\">\n            <li><strong>Subject:</strong> Type1</li>\n            <li><strong>Target Skills:</strong> React</li>\n            <li><strong>Time Constraint:</strong> 20 minutes</li>\n            <li><strong>Form Type:</strong> MCQ + In-Depth Short Answer</li>\n          </ul>\n        </div>\n\n        <p style=\"margin-top: 24px;\">Please click the direct link below to access your sandbox. Ensure a stable network connection before starting. State is saved securely.</p>\n        \n        <div style=\"text-align: center; margin: 28px 0;\">\n          <a href=\"http://localhost:3000/login?token=053ebe005cb519b7569c4dd8ecc99dfe\" style=\"background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 14px;\">Start Assessment Session</a>\n        </div>\n\n        <p style=\"font-size: 12px; color: #6b7280; text-align: center; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;\">This link is unique to you. Do not share. Verified secure encryption by Postgres/Signer.</p>\n      </div>\n    ",
+      "sentAt": "2026-06-08T16:16:33.762Z",
+      "status": "delivered"
+    },
+    {
+      "id": "mail-2267820f7499e5c6",
+      "toEmail": "c@gmi.com",
+      "toName": "C_Java1",
+      "subject": "Assessment Invitation: Java_1",
+      "htmlBody": "\n      <div style=\"font-family: Arial, sans-serif; max-width: 550px; padding: 24px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937;\">\n        <h2 style=\"color: #4f46e5; margin-top: 0;\">Online Technical Interview Invitation</h2>\n        <p>Dear <strong>C_Java1</strong>,</p>\n        <p>You have been formally invited to complete an online screening assessment for the role of senior engineer.</p>\n        \n        <div style=\"background-color: #f9fafb; border-left: 4px solid #4f46e5; padding: 12px; margin: 18px 0; border-radius: 0 4px 4px 0;\">\n          <h4 style=\"margin: 0 0 6px 0; color: #111827;\">Assessment Overview:</h4>\n          <ul style=\"margin: 0; padding-left: 18px;\">\n            <li><strong>Subject:</strong> Java_1</li>\n            <li><strong>Target Skills:</strong> java, spring boot</li>\n            <li><strong>Time Constraint:</strong> 20 minutes</li>\n            <li><strong>Form Type:</strong> MCQ + In-Depth Short Answer</li>\n          </ul>\n        </div>\n\n        <p style=\"margin-top: 24px;\">Please click the direct link below to access your sandbox. Ensure a stable network connection before starting. State is saved securely.</p>\n        \n        <div style=\"text-align: center; margin: 28px 0;\">\n          <a href=\"http://localhost:3000/login?token=39cad7fd9f1b0c79996665352a05cb89\" style=\"background-color: #4f46e5; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 6px; display: inline-block; font-size: 14px;\">Start Assessment Session</a>\n        </div>\n\n        <p style=\"font-size: 12px; color: #6b7280; text-align: center; margin-top: 32px; border-top: 1px solid #e5e7eb; padding-top: 16px;\">This link is unique to you. Do not share. Verified secure encryption by Postgres/Signer.</p>\n      </div>\n    ",
+      "sentAt": "2026-06-08T16:05:08.232Z",
       "status": "delivered"
     }
   ],
   "auditLogs": [
     {
-      "id": "audit-d6dfd9f4098e",
+      "id": "audit-8570c352b85e",
+      "action": "DELETE_ASSESSMENT",
+      "entityId": "asm-78cfb131bf0f8409",
+      "entityType": "assessments",
+      "performedBy": "RECRUITER",
+      "details": "Deleted assessment template: Type_2",
+      "timestamp": "2026-06-08T16:45:53.371Z"
+    },
+    {
+      "id": "audit-9b659b7f8959",
+      "action": "DELETE_ASSESSMENT",
+      "entityId": "asm-b1aa26d94d847d19",
+      "entityType": "assessments",
+      "performedBy": "RECRUITER",
+      "details": "Deleted assessment template: Type1",
+      "timestamp": "2026-06-08T16:45:45.671Z"
+    },
+    {
+      "id": "audit-44983eeeca24",
+      "action": "DELETE_INVITATION",
+      "entityId": "inv-c802d5f2b5a48e1a",
+      "entityType": "invitations",
+      "performedBy": "RECRUITER",
+      "details": "Deleted invitation for c3@g.com",
+      "timestamp": "2026-06-08T16:42:22.387Z"
+    },
+    {
+      "id": "audit-bc46242d1ea4",
+      "action": "DELETE_SESSION",
+      "entityId": "sess-b0061d1145f7f203af0a",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Deleted candidate session for c3@g.com",
+      "timestamp": "2026-06-08T16:42:22.386Z"
+    },
+    {
+      "id": "audit-1a6e82ac611b",
+      "action": "DELETE_INVITATION",
+      "entityId": "inv-4e9de547473a4136",
+      "entityType": "invitations",
+      "performedBy": "RECRUITER",
+      "details": "Deleted invitation for c2@c.com",
+      "timestamp": "2026-06-08T16:42:19.719Z"
+    },
+    {
+      "id": "audit-0e0010b0fdf3",
+      "action": "DELETE_SESSION",
+      "entityId": "sess-ea5624057a0c5254ebbf",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Deleted candidate session for c2@c.com",
+      "timestamp": "2026-06-08T16:42:19.717Z"
+    },
+    {
+      "id": "audit-d34fa85d99a5",
       "action": "AI_GRADING_END",
-      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityId": "sess-b0061d1145f7f203af0a",
       "entityType": "sessions",
       "performedBy": "SYSTEM",
-      "details": "Auto-grading complete. Result Cryptographic HMAC verified successfully. Score: 10/115",
-      "timestamp": "2026-06-04T10:25:04.604Z"
+      "details": "Auto-grading complete. Result Cryptographic HMAC verified successfully. Score: 0/105",
+      "timestamp": "2026-06-08T16:41:25.124Z"
     },
     {
-      "id": "audit-a441eb4642cc",
+      "id": "audit-28c9cdbb5f1b",
       "action": "UPDATE_SESSION",
-      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityId": "sess-b0061d1145f7f203af0a",
       "entityType": "sessions",
-      "performedBy": "anything@gmai.com",
+      "performedBy": "c3@g.com",
       "details": "Updated session status to: submitted",
-      "timestamp": "2026-06-04T10:25:04.602Z"
+      "timestamp": "2026-06-08T16:41:25.122Z"
     },
     {
-      "id": "audit-2b09449c90b2",
+      "id": "audit-8383cc8779a7",
       "action": "AI_GRADING_START",
-      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityId": "sess-b0061d1145f7f203af0a",
       "entityType": "sessions",
       "performedBy": "SYSTEM",
-      "details": "Launching Gemini AI auto-grading loop for candidate: anything@gmai.com",
-      "timestamp": "2026-06-04T10:25:04.599Z"
+      "details": "Launching Gemini AI auto-grading loop for candidate: c3@g.com",
+      "timestamp": "2026-06-08T16:41:25.120Z"
     },
     {
-      "id": "audit-cc8a9371ebc5",
+      "id": "audit-41573458caa7",
       "action": "SUBMISSION_RECEIVED",
-      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityId": "sess-b0061d1145f7f203af0a",
       "entityType": "sessions",
       "performedBy": "API",
       "details": "Received answers payload from candidate session. Processing assessment.",
-      "timestamp": "2026-06-04T10:25:04.598Z"
+      "timestamp": "2026-06-08T16:41:25.119Z"
     },
     {
-      "id": "audit-7051c8e82ea2",
+      "id": "audit-92537c960f67",
       "action": "CANDIDATE_START_EXAM",
-      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityId": "sess-b0061d1145f7f203af0a",
       "entityType": "sessions",
-      "performedBy": "anything@gmai.com",
-      "details": "Candidate Candidate_Networking officially launched timed test session.",
-      "timestamp": "2026-06-04T10:24:37.188Z"
+      "performedBy": "c3@g.com",
+      "details": "Candidate c3 officially launched timed test session.",
+      "timestamp": "2026-06-08T16:41:18.836Z"
     },
     {
-      "id": "audit-662d9e4e0cfe",
+      "id": "audit-de70a5bf43ac",
       "action": "UPDATE_SESSION",
-      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityId": "sess-b0061d1145f7f203af0a",
       "entityType": "sessions",
-      "performedBy": "anything@gmai.com",
+      "performedBy": "c3@g.com",
       "details": "Updated session status to: in_progress",
-      "timestamp": "2026-06-04T10:24:37.186Z"
+      "timestamp": "2026-06-08T16:41:18.834Z"
     },
     {
-      "id": "audit-51861700df55",
+      "id": "audit-a61cb82c92e5",
       "action": "SEND_INVITATION",
-      "entityId": "inv-9eabcd0c38251607",
+      "entityId": "inv-c802d5f2b5a48e1a",
       "entityType": "invitations",
       "performedBy": "SYSTEM",
-      "details": "Automated email invitation dispatched cleanly to anything@gmai.com",
-      "timestamp": "2026-06-04T10:24:21.567Z"
+      "details": "Automated email invitation dispatched cleanly to c3@g.com",
+      "timestamp": "2026-06-08T16:41:11.697Z"
     },
     {
-      "id": "audit-70b5a24d200d",
+      "id": "audit-66774dafcd6e",
       "action": "CREATE_SESSION",
-      "entityId": "sess-8f4f1a93d91d2dad8814",
+      "entityId": "sess-b0061d1145f7f203af0a",
       "entityType": "sessions",
       "performedBy": "RECRUITER",
-      "details": "Created interview candidate queue record for anything@gmai.com",
-      "timestamp": "2026-06-04T10:24:21.565Z"
+      "details": "Created interview candidate queue record for c3@g.com",
+      "timestamp": "2026-06-08T16:41:11.695Z"
     },
     {
-      "id": "audit-deed74803f59",
+      "id": "audit-bea097befc4e",
+      "action": "AI_GRADING_END",
+      "entityId": "sess-ea5624057a0c5254ebbf",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Auto-grading complete. Result Cryptographic HMAC verified successfully. Score: 0/105",
+      "timestamp": "2026-06-08T16:38:19.712Z"
+    },
+    {
+      "id": "audit-075ba7bfe0f6",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-ea5624057a0c5254ebbf",
+      "entityType": "sessions",
+      "performedBy": "c2@c.com",
+      "details": "Updated session status to: submitted",
+      "timestamp": "2026-06-08T16:38:19.711Z"
+    },
+    {
+      "id": "audit-681515b540bd",
+      "action": "AI_GRADING_START",
+      "entityId": "sess-ea5624057a0c5254ebbf",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Launching Gemini AI auto-grading loop for candidate: c2@c.com",
+      "timestamp": "2026-06-08T16:38:19.710Z"
+    },
+    {
+      "id": "audit-2e3f2c8c9d10",
+      "action": "SUBMISSION_RECEIVED",
+      "entityId": "sess-ea5624057a0c5254ebbf",
+      "entityType": "sessions",
+      "performedBy": "API",
+      "details": "Received answers payload from candidate session. Processing assessment.",
+      "timestamp": "2026-06-08T16:38:19.709Z"
+    },
+    {
+      "id": "audit-9a98e462ba15",
+      "action": "CANDIDATE_START_EXAM",
+      "entityId": "sess-ea5624057a0c5254ebbf",
+      "entityType": "sessions",
+      "performedBy": "c2@c.com",
+      "details": "Candidate c2 officially launched timed test session.",
+      "timestamp": "2026-06-08T16:38:10.696Z"
+    },
+    {
+      "id": "audit-859a23dd7674",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-ea5624057a0c5254ebbf",
+      "entityType": "sessions",
+      "performedBy": "c2@c.com",
+      "details": "Updated session status to: in_progress",
+      "timestamp": "2026-06-08T16:38:10.694Z"
+    },
+    {
+      "id": "audit-8e1aceeebae2",
+      "action": "SEND_INVITATION",
+      "entityId": "inv-4e9de547473a4136",
+      "entityType": "invitations",
+      "performedBy": "SYSTEM",
+      "details": "Automated email invitation dispatched cleanly to c2@c.com",
+      "timestamp": "2026-06-08T16:37:59.003Z"
+    },
+    {
+      "id": "audit-0fb470366081",
+      "action": "CREATE_SESSION",
+      "entityId": "sess-ea5624057a0c5254ebbf",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Created interview candidate queue record for c2@c.com",
+      "timestamp": "2026-06-08T16:37:59.001Z"
+    },
+    {
+      "id": "audit-82fa528deb3b",
+      "action": "DELETE_INVITATION",
+      "entityId": "inv-824032c5872ba8e0",
+      "entityType": "invitations",
+      "performedBy": "RECRUITER",
+      "details": "Deleted invitation for c@t2.com",
+      "timestamp": "2026-06-08T16:37:40.673Z"
+    },
+    {
+      "id": "audit-d1c89a30c24c",
+      "action": "DELETE_SESSION",
+      "entityId": "sess-b04ee97c742da16ff650",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Deleted candidate session for c@t2.com",
+      "timestamp": "2026-06-08T16:37:40.672Z"
+    },
+    {
+      "id": "audit-53538610c58e",
+      "action": "AI_GRADING_END",
+      "entityId": "sess-b04ee97c742da16ff650",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Auto-grading complete. Result Cryptographic HMAC verified successfully. Score: 0/110",
+      "timestamp": "2026-06-08T16:33:47.036Z"
+    },
+    {
+      "id": "audit-95edb9240e9d",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-b04ee97c742da16ff650",
+      "entityType": "sessions",
+      "performedBy": "c@t2.com",
+      "details": "Updated session status to: submitted",
+      "timestamp": "2026-06-08T16:33:47.033Z"
+    },
+    {
+      "id": "audit-9b13c78c686f",
+      "action": "AI_GRADING_START",
+      "entityId": "sess-b04ee97c742da16ff650",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Launching Gemini AI auto-grading loop for candidate: c@t2.com",
+      "timestamp": "2026-06-08T16:33:47.031Z"
+    },
+    {
+      "id": "audit-55f80e7176bb",
+      "action": "SUBMISSION_RECEIVED",
+      "entityId": "sess-b04ee97c742da16ff650",
+      "entityType": "sessions",
+      "performedBy": "API",
+      "details": "Received answers payload from candidate session. Processing assessment.",
+      "timestamp": "2026-06-08T16:33:47.030Z"
+    },
+    {
+      "id": "audit-644d9fe77982",
+      "action": "CANDIDATE_START_EXAM",
+      "entityId": "sess-b04ee97c742da16ff650",
+      "entityType": "sessions",
+      "performedBy": "c@t2.com",
+      "details": "Candidate C_t1 officially launched timed test session.",
+      "timestamp": "2026-06-08T16:33:36.672Z"
+    },
+    {
+      "id": "audit-42f5896913d5",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-b04ee97c742da16ff650",
+      "entityType": "sessions",
+      "performedBy": "c@t2.com",
+      "details": "Updated session status to: in_progress",
+      "timestamp": "2026-06-08T16:33:36.670Z"
+    },
+    {
+      "id": "audit-e14a2a9bac36",
+      "action": "SEND_INVITATION",
+      "entityId": "inv-824032c5872ba8e0",
+      "entityType": "invitations",
+      "performedBy": "SYSTEM",
+      "details": "Automated email invitation dispatched cleanly to c@t2.com",
+      "timestamp": "2026-06-08T16:33:28.955Z"
+    },
+    {
+      "id": "audit-ed902d7b2f44",
+      "action": "CREATE_SESSION",
+      "entityId": "sess-b04ee97c742da16ff650",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Created interview candidate queue record for c@t2.com",
+      "timestamp": "2026-06-08T16:33:28.953Z"
+    },
+    {
+      "id": "audit-2d2b6c5ca52c",
+      "action": "DELETE_INVITATION",
+      "entityId": "inv-f5cd10ab451ff344",
+      "entityType": "invitations",
+      "performedBy": "RECRUITER",
+      "details": "Deleted invitation for c@t2.com",
+      "timestamp": "2026-06-08T16:33:07.896Z"
+    },
+    {
+      "id": "audit-9ad658915cd9",
+      "action": "DELETE_SESSION",
+      "entityId": "sess-a1a09cf89860ada23b07",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Deleted candidate session for c@t2.com",
+      "timestamp": "2026-06-08T16:33:07.894Z"
+    },
+    {
+      "id": "audit-1d05ed706616",
+      "action": "AI_GRADING_END",
+      "entityId": "sess-a1a09cf89860ada23b07",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Auto-grading complete. Result Cryptographic HMAC verified successfully. Score: 0/105",
+      "timestamp": "2026-06-08T16:29:14.196Z"
+    },
+    {
+      "id": "audit-cfb6092d0f76",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-a1a09cf89860ada23b07",
+      "entityType": "sessions",
+      "performedBy": "c@t2.com",
+      "details": "Updated session status to: submitted",
+      "timestamp": "2026-06-08T16:29:14.194Z"
+    },
+    {
+      "id": "audit-a3652f496134",
+      "action": "AI_GRADING_START",
+      "entityId": "sess-a1a09cf89860ada23b07",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Launching Gemini AI auto-grading loop for candidate: c@t2.com",
+      "timestamp": "2026-06-08T16:29:14.193Z"
+    },
+    {
+      "id": "audit-856ec61b977f",
+      "action": "SUBMISSION_RECEIVED",
+      "entityId": "sess-a1a09cf89860ada23b07",
+      "entityType": "sessions",
+      "performedBy": "API",
+      "details": "Received answers payload from candidate session. Processing assessment.",
+      "timestamp": "2026-06-08T16:29:14.191Z"
+    },
+    {
+      "id": "audit-cc7a1ec6d56e",
+      "action": "CANDIDATE_START_EXAM",
+      "entityId": "sess-a1a09cf89860ada23b07",
+      "entityType": "sessions",
+      "performedBy": "c@t2.com",
+      "details": "Candidate C_type2 officially launched timed test session.",
+      "timestamp": "2026-06-08T16:29:06.240Z"
+    },
+    {
+      "id": "audit-73f3c94e2923",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-a1a09cf89860ada23b07",
+      "entityType": "sessions",
+      "performedBy": "c@t2.com",
+      "details": "Updated session status to: in_progress",
+      "timestamp": "2026-06-08T16:29:06.239Z"
+    },
+    {
+      "id": "audit-7233536a4e47",
+      "action": "SEND_INVITATION",
+      "entityId": "inv-f5cd10ab451ff344",
+      "entityType": "invitations",
+      "performedBy": "SYSTEM",
+      "details": "Automated email invitation dispatched cleanly to c@t2.com",
+      "timestamp": "2026-06-08T16:28:42.715Z"
+    },
+    {
+      "id": "audit-dd796023a6c4",
+      "action": "CREATE_SESSION",
+      "entityId": "sess-a1a09cf89860ada23b07",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Created interview candidate queue record for c@t2.com",
+      "timestamp": "2026-06-08T16:28:42.714Z"
+    },
+    {
+      "id": "audit-2f4c46fd1bb8",
       "action": "CREATE_ASSESSMENT",
-      "entityId": "asm-fb031b750b085bfc",
+      "entityId": "asm-78cfb131bf0f8409",
       "entityType": "assessments",
       "performedBy": "admin-laxmi",
-      "details": "Created assessment containing 10 items in Networking,CI/CD tools",
-      "timestamp": "2026-06-04T10:23:36.603Z"
+      "details": "Created assessment containing 7 items in React",
+      "timestamp": "2026-06-08T16:28:27.555Z"
     },
     {
-      "id": "audit-088265d15efd",
+      "id": "audit-8b094f188298",
       "action": "AI_GENERATION_START",
       "entityId": "pending",
       "entityType": "assessments",
       "performedBy": "admin-laxmi",
-      "details": "Requesting Gemini to draft 10 questions for skills: Networking, CI/CD tools",
-      "timestamp": "2026-06-04T10:23:36.601Z"
+      "details": "Requesting Gemini to draft 7 medium DESCRIPTIVE questions for skills: React",
+      "timestamp": "2026-06-08T16:28:27.553Z"
     },
     {
-      "id": "audit-7c6f27f460f9",
+      "id": "audit-2addc254fccb",
+      "action": "DELETE_INVITATION",
+      "entityId": "inv-028ab16e4462bc2d",
+      "entityType": "invitations",
+      "performedBy": "RECRUITER",
+      "details": "Deleted invitation for c@t.com",
+      "timestamp": "2026-06-08T16:27:40.053Z"
+    },
+    {
+      "id": "audit-db4f72413dc2",
+      "action": "DELETE_SESSION",
+      "entityId": "sess-bb6eb4bf779ed1a695d4",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Deleted candidate session for c@t.com",
+      "timestamp": "2026-06-08T16:27:40.052Z"
+    },
+    {
+      "id": "audit-aec84b71a87d",
+      "action": "AI_GRADING_END",
+      "entityId": "sess-bb6eb4bf779ed1a695d4",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Auto-grading complete. Result Cryptographic HMAC verified successfully. Score: 0/110",
+      "timestamp": "2026-06-08T16:23:12.285Z"
+    },
+    {
+      "id": "audit-b2c519a90dd1",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-bb6eb4bf779ed1a695d4",
+      "entityType": "sessions",
+      "performedBy": "c@t.com",
+      "details": "Updated session status to: submitted",
+      "timestamp": "2026-06-08T16:23:12.283Z"
+    },
+    {
+      "id": "audit-f91620f81f2d",
+      "action": "AI_GRADING_START",
+      "entityId": "sess-bb6eb4bf779ed1a695d4",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Launching Gemini AI auto-grading loop for candidate: c@t.com",
+      "timestamp": "2026-06-08T16:23:12.282Z"
+    },
+    {
+      "id": "audit-8ea574c65bbd",
+      "action": "SUBMISSION_RECEIVED",
+      "entityId": "sess-bb6eb4bf779ed1a695d4",
+      "entityType": "sessions",
+      "performedBy": "API",
+      "details": "Received answers payload from candidate session. Processing assessment.",
+      "timestamp": "2026-06-08T16:23:12.281Z"
+    },
+    {
+      "id": "audit-b1cfc4558059",
+      "action": "CANDIDATE_START_EXAM",
+      "entityId": "sess-bb6eb4bf779ed1a695d4",
+      "entityType": "sessions",
+      "performedBy": "c@t.com",
+      "details": "Candidate c_type1 officially launched timed test session.",
+      "timestamp": "2026-06-08T16:23:06.462Z"
+    },
+    {
+      "id": "audit-f61cb90a1ac4",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-bb6eb4bf779ed1a695d4",
+      "entityType": "sessions",
+      "performedBy": "c@t.com",
+      "details": "Updated session status to: in_progress",
+      "timestamp": "2026-06-08T16:23:06.461Z"
+    },
+    {
+      "id": "audit-7620a5ab6185",
+      "action": "SEND_INVITATION",
+      "entityId": "inv-028ab16e4462bc2d",
+      "entityType": "invitations",
+      "performedBy": "SYSTEM",
+      "details": "Automated email invitation dispatched cleanly to c@t.com",
+      "timestamp": "2026-06-08T16:22:55.161Z"
+    },
+    {
+      "id": "audit-8c2848c66b1f",
+      "action": "CREATE_SESSION",
+      "entityId": "sess-bb6eb4bf779ed1a695d4",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Created interview candidate queue record for c@t.com",
+      "timestamp": "2026-06-08T16:22:55.159Z"
+    },
+    {
+      "id": "audit-c14294caedab",
+      "action": "DELETE_INVITATION",
+      "entityId": "inv-73c38c585543c3ef",
+      "entityType": "invitations",
+      "performedBy": "RECRUITER",
+      "details": "Deleted invitation for c@t.com",
+      "timestamp": "2026-06-08T16:22:37.944Z"
+    },
+    {
+      "id": "audit-55bf5fa90f0c",
+      "action": "DELETE_INVITATION",
+      "entityId": "inv-382952e60ccf07c7",
+      "entityType": "invitations",
+      "performedBy": "RECRUITER",
+      "details": "Deleted invitation for c@t.com",
+      "timestamp": "2026-06-08T16:22:37.943Z"
+    },
+    {
+      "id": "audit-b1747ce419e0",
+      "action": "DELETE_SESSION",
+      "entityId": "sess-46b8f4c0476644f14271",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Deleted candidate session for c@t.com",
+      "timestamp": "2026-06-08T16:22:37.942Z"
+    },
+    {
+      "id": "audit-b537bf35f4a4",
+      "action": "SEND_INVITATION",
+      "entityId": "inv-73c38c585543c3ef",
+      "entityType": "invitations",
+      "performedBy": "SYSTEM",
+      "details": "Automated email invitation dispatched cleanly to c@t.com",
+      "timestamp": "2026-06-08T16:22:17.048Z"
+    },
+    {
+      "id": "audit-6ae4d034915b",
+      "action": "DELETE_SESSION",
+      "entityId": "sess-6a083d3256413fef2402",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Deleted session from removed assessment: c@gmi.com",
+      "timestamp": "2026-06-08T16:17:30.163Z"
+    },
+    {
+      "id": "audit-ef283328d0f2",
+      "action": "DELETE_ASSESSMENT",
+      "entityId": "asm-4356fb06dc8f9f35",
+      "entityType": "assessments",
+      "performedBy": "RECRUITER",
+      "details": "Deleted assessment template: Java_1",
+      "timestamp": "2026-06-08T16:17:30.161Z"
+    },
+    {
+      "id": "audit-62f8deb1b4c6",
+      "action": "AI_GRADING_END",
+      "entityId": "sess-46b8f4c0476644f14271",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Auto-grading complete. Result Cryptographic HMAC verified successfully. Score: 10/110",
+      "timestamp": "2026-06-08T16:16:51.956Z"
+    },
+    {
+      "id": "audit-aa32134f38d9",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-46b8f4c0476644f14271",
+      "entityType": "sessions",
+      "performedBy": "c@t.com",
+      "details": "Updated session status to: submitted",
+      "timestamp": "2026-06-08T16:16:51.954Z"
+    },
+    {
+      "id": "audit-34a32e8c3043",
+      "action": "AI_GRADING_START",
+      "entityId": "sess-46b8f4c0476644f14271",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Launching Gemini AI auto-grading loop for candidate: c@t.com",
+      "timestamp": "2026-06-08T16:16:51.953Z"
+    },
+    {
+      "id": "audit-0a7d410a1351",
+      "action": "SUBMISSION_RECEIVED",
+      "entityId": "sess-46b8f4c0476644f14271",
+      "entityType": "sessions",
+      "performedBy": "API",
+      "details": "Received answers payload from candidate session. Processing assessment.",
+      "timestamp": "2026-06-08T16:16:51.952Z"
+    },
+    {
+      "id": "audit-7a8cc40e38f7",
+      "action": "CANDIDATE_START_EXAM",
+      "entityId": "sess-46b8f4c0476644f14271",
+      "entityType": "sessions",
+      "performedBy": "c@t.com",
+      "details": "Candidate C_type1 officially launched timed test session.",
+      "timestamp": "2026-06-08T16:16:43.116Z"
+    },
+    {
+      "id": "audit-37de00c8996a",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-46b8f4c0476644f14271",
+      "entityType": "sessions",
+      "performedBy": "c@t.com",
+      "details": "Updated session status to: in_progress",
+      "timestamp": "2026-06-08T16:16:43.115Z"
+    },
+    {
+      "id": "audit-d657253dffca",
+      "action": "SEND_INVITATION",
+      "entityId": "inv-382952e60ccf07c7",
+      "entityType": "invitations",
+      "performedBy": "SYSTEM",
+      "details": "Automated email invitation dispatched cleanly to c@t.com",
+      "timestamp": "2026-06-08T16:16:33.762Z"
+    },
+    {
+      "id": "audit-921a11bd40a0",
+      "action": "CREATE_SESSION",
+      "entityId": "sess-46b8f4c0476644f14271",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Created interview candidate queue record for c@t.com",
+      "timestamp": "2026-06-08T16:16:33.760Z"
+    },
+    {
+      "id": "audit-e64ab8462658",
+      "action": "CREATE_ASSESSMENT",
+      "entityId": "asm-b1aa26d94d847d19",
+      "entityType": "assessments",
+      "performedBy": "admin-laxmi",
+      "details": "Created assessment containing 11 items in React",
+      "timestamp": "2026-06-08T16:16:12.771Z"
+    },
+    {
+      "id": "audit-cfb171988e51",
+      "action": "AI_GENERATION_START",
+      "entityId": "pending",
+      "entityType": "assessments",
+      "performedBy": "admin-laxmi",
+      "details": "Requesting Gemini to draft 11 medium MCQ questions for skills: React",
+      "timestamp": "2026-06-08T16:16:12.769Z"
+    },
+    {
+      "id": "audit-5881a57f54ed",
+      "action": "AI_GRADING_END",
+      "entityId": "sess-6a083d3256413fef2402",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Auto-grading complete. Result Cryptographic HMAC verified successfully. Score: 10/80",
+      "timestamp": "2026-06-08T16:05:41.557Z"
+    },
+    {
+      "id": "audit-4c24edca2239",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-6a083d3256413fef2402",
+      "entityType": "sessions",
+      "performedBy": "c@gmi.com",
+      "details": "Updated session status to: submitted",
+      "timestamp": "2026-06-08T16:05:41.556Z"
+    },
+    {
+      "id": "audit-03b368f3ea58",
+      "action": "AI_GRADING_START",
+      "entityId": "sess-6a083d3256413fef2402",
+      "entityType": "sessions",
+      "performedBy": "SYSTEM",
+      "details": "Launching Gemini AI auto-grading loop for candidate: c@gmi.com",
+      "timestamp": "2026-06-08T16:05:41.552Z"
+    },
+    {
+      "id": "audit-9db3cd0549aa",
+      "action": "SUBMISSION_RECEIVED",
+      "entityId": "sess-6a083d3256413fef2402",
+      "entityType": "sessions",
+      "performedBy": "API",
+      "details": "Received answers payload from candidate session. Processing assessment.",
+      "timestamp": "2026-06-08T16:05:41.551Z"
+    },
+    {
+      "id": "audit-d7e59a71f07d",
+      "action": "CANDIDATE_START_EXAM",
+      "entityId": "sess-6a083d3256413fef2402",
+      "entityType": "sessions",
+      "performedBy": "c@gmi.com",
+      "details": "Candidate C_Java1 officially launched timed test session.",
+      "timestamp": "2026-06-08T16:05:18.008Z"
+    },
+    {
+      "id": "audit-bf2c7674dc53",
+      "action": "UPDATE_SESSION",
+      "entityId": "sess-6a083d3256413fef2402",
+      "entityType": "sessions",
+      "performedBy": "c@gmi.com",
+      "details": "Updated session status to: in_progress",
+      "timestamp": "2026-06-08T16:05:18.006Z"
+    },
+    {
+      "id": "audit-cc92548f4f2d",
+      "action": "SEND_INVITATION",
+      "entityId": "inv-af5419bc8b5d4757",
+      "entityType": "invitations",
+      "performedBy": "SYSTEM",
+      "details": "Automated email invitation dispatched cleanly to c@gmi.com",
+      "timestamp": "2026-06-08T16:05:08.232Z"
+    },
+    {
+      "id": "audit-85d5735799da",
+      "action": "CREATE_SESSION",
+      "entityId": "sess-6a083d3256413fef2402",
+      "entityType": "sessions",
+      "performedBy": "RECRUITER",
+      "details": "Created interview candidate queue record for c@gmi.com",
+      "timestamp": "2026-06-08T16:05:08.230Z"
+    },
+    {
+      "id": "audit-8b2afee777d7",
+      "action": "CREATE_ASSESSMENT",
+      "entityId": "asm-4356fb06dc8f9f35",
+      "entityType": "assessments",
+      "performedBy": "admin-laxmi",
+      "details": "Created assessment containing 7 items in java,spring boot",
+      "timestamp": "2026-06-08T16:03:54.000Z"
+    },
+    {
+      "id": "audit-cb0eb3fe8f5d",
+      "action": "AI_GENERATION_START",
+      "entityId": "pending",
+      "entityType": "assessments",
+      "performedBy": "admin-laxmi",
+      "details": "Requesting Gemini to draft 7 hard questions for skills: java, spring boot",
+      "timestamp": "2026-06-08T16:03:53.994Z"
+    },
+    {
+      "id": "audit-7473bde5a1ff",
       "action": "SEED_ASSESSMENT",
       "entityId": "asm-sample-react-node",
       "entityType": "assessments",
       "performedBy": "SYSTEM",
       "details": "Seeded React & Node.js dynamic assessment",
-      "timestamp": "2026-05-27T16:04:02.169Z"
+      "timestamp": "2026-06-04T16:36:30.307Z"
     },
     {
-      "id": "audit-bd146b504bdd",
+      "id": "audit-d2e58187dfd9",
       "action": "SEED_USER",
       "entityId": "admin-laxmi",
       "entityType": "users",
       "performedBy": "SYSTEM",
       "details": "Seeded default Admin recruiter account",
-      "timestamp": "2026-05-27T16:04:02.167Z"
+      "timestamp": "2026-06-04T16:36:30.305Z"
     }
   ]
 }

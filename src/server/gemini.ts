@@ -29,18 +29,30 @@ function getGeminiClient(): GoogleGenAI | null {
 /**
  * Uses Gemini to generate custom valid MCQ and Subjective questions on selected skills.
  */
-export async function generateAiQuestions(skills: string[], numQuestions: number, difficultyLevel: QuestionDifficulty = "medium"): Promise<Question[]> {
+export async function generateAiQuestions(
+  skills: string[],
+  numQuestions: number,
+  difficultyLevel: QuestionDifficulty = "medium",
+  questionType: "mcq" | "descriptive" | "mixed" = "mixed"
+): Promise<Question[]> {
   const client = getGeminiClient();
   
   if (!client) {
     console.warn("GEMINI_API_KEY is not defined or is placeholder. Using seed system generated mock questions.");
-    return fallbackGeneratedQuestions(skills, numQuestions, difficultyLevel);
+    return fallbackGeneratedQuestions(skills, numQuestions, difficultyLevel, questionType);
   }
 
-  const prompt = `Generate a balanced technical assessment containing exactly ${numQuestions} questions targeting the following technologies or skills: ${skills.join(", ")}. 
+  let typeInstruction = "Mix Multiple Choice Questions (type: mcq) and Short-Answer written questions (type: short_answer).";
+  if (questionType === "mcq") {
+    typeInstruction = "Generate only Multiple Choice Questions (type: mcq) for this assessment.";
+  } else if (questionType === "descriptive") {
+    typeInstruction = "Generate only Short-Answer written questions (type: short_answer) for this assessment.";
+  }
+
+  const prompt = `Generate a technical assessment containing exactly ${numQuestions} questions targeting the following technologies or skills: ${skills.join(", ")}. 
 Each question must be challenging and suitable for software developer screening.
 Use the selected difficulty level: ${difficultyLevel}. 
-Mix Multiple Choice Questions (type: mcq) and Short-Answer written questions (type: short_answer).
+${typeInstruction}
 For MCQ questions, provide an array of exactly 4 choices and indicate the correct choice index (0-3).
 For short_answer questions, omit choices and correct choice index, but provide a thorough, structured 'correctAnswerRubric' spelling out what points the candidate must touch upon to get full credit.
 Return the output strictly in the specified JSON array schema.`;
@@ -114,7 +126,7 @@ Return the output strictly in the specified JSON array schema.`;
     }));
   } catch (err) {
     console.error("Gemini failed to generate questions, using backup generator:", err);
-    return fallbackGeneratedQuestions(skills, numQuestions, difficultyLevel);
+    return fallbackGeneratedQuestions(skills, numQuestions, difficultyLevel, questionType);
   }
 }
 
@@ -303,8 +315,19 @@ Provide a JSON array matching the criteria schema.`;
 /**
  * Simple heuristics fallback for offline-mode generating standard, beautiful questions.
  */
-function fallbackGeneratedQuestions(skills: string[], numQuestions: number, difficultyLevel: QuestionDifficulty = "medium"): Question[] {
+function fallbackGeneratedQuestions(
+  skills: string[],
+  numQuestions: number,
+  difficultyLevel: QuestionDifficulty = "medium",
+  questionType: "mcq" | "descriptive" | "mixed" = "mixed"
+): Question[] {
   const result: Question[] = [];
+  const allowedTypes = questionType === "mcq"
+    ? ["mcq"]
+    : questionType === "descriptive"
+      ? ["short_answer"]
+      : ["mcq", "short_answer"];
+
   const standardPool = [
     {
       type: "mcq" as QuestionType,
@@ -341,8 +364,11 @@ function fallbackGeneratedQuestions(skills: string[], numQuestions: number, diff
     }
   ];
 
+  const pool = standardPool.filter((item) => allowedTypes.includes(item.type));
+  const questionPool = pool.length > 0 ? pool : standardPool;
+
   for (let idx = 0; idx < numQuestions; idx++) {
-    const fallbackTemplate = standardPool[idx % standardPool.length];
+    const fallbackTemplate = questionPool[idx % questionPool.length];
     result.push({
       id: `q-fallback-${idx + 1}`,
       ...fallbackTemplate,

@@ -104,9 +104,6 @@ export default function Login({ onLoginSuccess }: LoginProps) {
                   placeholder="name@company.com"
                 />
               </div>
-              <p className="mt-1 text-[10px] text-gray-400">
-                Tip: Enter <span className="font-mono text-indigo-600">laxmitidke@gmail.com</span> to automatically log in as Admin.
-              </p>
             </div>
 
             <div>
@@ -124,7 +121,7 @@ export default function Login({ onLoginSuccess }: LoginProps) {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="pl-9 block w-full rounded-xl border border-gray-200 px-3 py-2.5 text-gray-900 placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm"
-                  placeholder="Laxmi Tidke"
+                  placeholder=""
                 />
               </div>
             </div>

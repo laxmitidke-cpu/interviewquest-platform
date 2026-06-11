@@ -88,6 +88,12 @@ export default function CandidateExam({ token, onExit }: CandidateExamProps) {
     fetchSessionInfo();
   }, [token]);
 
+  useEffect(() => {
+    if (session?.status === "submitted" || session?.status === "expired") {
+      onExit();
+    }
+  }, [session, onExit]);
+
   // Window blur security monitoring system matches guidelines
   useEffect(() => {
     if (!sessionStarted || gradedSession) return;
@@ -233,6 +239,7 @@ export default function CandidateExam({ token, onExit }: CandidateExamProps) {
       if (res.ok) {
         const data = await res.json();
         setGradedSession(data.session);
+        onExit();
       } else {
         throw new Error("Submit process failed.");
       }
